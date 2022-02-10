@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+}
+#layersContainer,
+#toolsConatiner {
+  width: 20%;
+}
+
+#canvasContainer {
+  width: 60%;
+}
+
+#canvas {
+  width: 100%;
+  height: 500px;
+  border: 1px solid black;
+}
+
+#layers {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* .layer {
+  background-color: black;
+  color: white;
+} */
+
+#tools {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
