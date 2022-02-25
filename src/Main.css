@@ -1,36 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100vh;
+  height: auto;
+}
 .container {
   display: flex;
+  align-items: center;
+  height: 100vh;
+  background-color: #444;
 }
 #layersContainer,
-#toolsConatiner {
+#toolsContainer {
   width: 20%;
+  height: 90vh;
 }
-
-#canvasContainer {
-  width: 60%;
+#canvaContainer {
+  width: 80%;
+  height: 90%;
 }
-
 #canvas {
   width: 100%;
-  height: 500px;
-  border: 1px solid black;
+  height: 100%;
+  border: 1px solid transparent;
+  background-color: #fff;
 }
-
 #layers {
   width: 100%;
-  height: 500px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
 }
-
-/* .layer {
-  background-color: black;
-  color: white;
-} */
-
+#layers ul {
+  width: 90%;
+  height: 90%;
+  overflow-y: auto;
+  margin: 0 0 10px 0;
+}
+#layers ul::-webkit-scrollbar {
+  width: 5px;
+  cursor: pointer;
+}
+#layers ul::-webkit-scrollbar-thumb {
+  background: #8F8E92;
+  border-radius: 10px;
+}
+#layers li {
+  margin: 0 10px 10px 10px;
+  padding: 15px 0;
+  background-color: #2B2B2B;
+  color: #fff;
+  cursor: pointer;
+}
+button#layer {
+  width: 90%;
+  padding: 15px 0;
+  border-radius: 30px;
+  cursor: pointer;
+  border-color: transparent;
+}
+ul,
+li {
+  list-style: none;
+}
 #tools {
   width: 100%;
+  min-height: 90%;
   display: flex;
   flex-direction: column;
+}
+#tools div{
+  margin: 0 10px 10px 10px;
+  padding: 15px 0;
+  background-color: #2B2B2B;
+  color: #fff;
+  cursor: pointer;
+}
+.visible {
+  display: block;
+}
+.invisible {
+  visibility: hidden;
 }

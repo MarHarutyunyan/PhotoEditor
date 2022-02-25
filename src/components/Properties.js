@@ -3,7 +3,7 @@ import '../Main.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { TxtFeatures } from '../components/TxtFeatures';
 
-export const Tools = () => {
+export const Properties = () => {
     const dispatch = useDispatch();
     const data = useSelector((state) => state.data);
     
@@ -23,6 +23,7 @@ export const Tools = () => {
             <div id='tools'>
                 <div id='IMG' onClick={() => AddToData('IMG')}>Img</div>
                 <div id='TEXT' onClick={() => AddToData('TEXT'), show}>Text</div>
+                {showFeatures ? <TxtFeatures /> : null}
                 <div id='EFFECTS' onClick={() => AddToData('EFFECTS')}>Effects</div>
                 <div id='VECTOR' onClick={() => AddToData('VECTOR')} >Vectors</div>
             </div>
