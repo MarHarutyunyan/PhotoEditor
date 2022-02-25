@@ -8,7 +8,7 @@ export const TxtFeatures = () => {
     console.log(txtFeatures);
     // if (layers.length > 0) {
         return (
-            <div id="TXT_FEATURES">
+            <div id="txtFeautures">
                 <ul>
                     {txtFeatures.map((_, i) => (
                         <li key={i}> {txtFeatures[i + 1]}</li>
