@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../Main.css";
 import { useDispatch, useSelector } from "react-redux";
-import { TxtFeatures } from "../components/TxtFeatures";
 
 export const Tools = ({setId}) => {
-  const [active, setActive] = useState("");
   const dispatch = useDispatch();
   const data = useSelector((state) => state.data);
 
@@ -12,6 +10,7 @@ export const Tools = ({setId}) => {
     dispatch({ type: "ADD_LAYER" });
     dispatch({ type: "SET_LAYER", id: id });
     setId(id);
+    dispatch({ type: "ADD_TEXT" });
   };
 
   return (
@@ -30,7 +29,6 @@ export const Tools = ({setId}) => {
           Vectors
         </div>
       </div>
-      {/* <div>{active === "TEXT" && <TxtFeatures />}</div> */}
     </div>
   );
 };

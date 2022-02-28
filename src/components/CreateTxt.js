@@ -4,6 +4,7 @@
 
 // export const CreateTxt = () => {
 //     return (
+//         <div></div>
 //         // <EdiText
 //         //     type='text'
 //         //     onCancel={v => console.log('CANCELLED: ', v}
@@ -11,9 +12,7 @@
 //         //     onSave={v => console.log('SAVED: ', v}
 //         //     value={"You've been living in a dream world, Neo."}
 //         // />
-//         <div>
-//             <EditText/>
-//         </div>
+//         // <EditText className='EdiText'/>
 //     )
 
 // }

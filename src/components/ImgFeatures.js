@@ -4,7 +4,7 @@ export const ImgFeatures = () => {
     const features = useSelector((state) => state.data.layer.meta.ImgMeta);
     const ImgFeatures = Object.keys(features);
     return (
-        <div id="IMG_FEATURES" >
+        <div id="imgFeatures" >
             <ul>
                 {ImgFeatures.map((_, i) => (
                     <li key={i}> {ImgFeatures[i]}</li>

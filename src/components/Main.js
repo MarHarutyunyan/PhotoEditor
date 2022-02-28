@@ -9,10 +9,11 @@ import { Properties } from "./Properties";
 export default function Main() {
   const [id, setId] = useState("");
   const data = useSelector((state) => state.data);
+  const [layers, setLayers] = useState(data.layers);
   return (
     <div className="container">
-      <Layers setId={setId} />
-      <Canvas />
+      <Layers setId={setId} setLayers={setLayers} />
+      <Canvas layers={layers} />
       <Properties id={id} />
     </div>
   );

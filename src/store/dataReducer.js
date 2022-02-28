@@ -1,5 +1,5 @@
 import { addLayer, checkForEmptyLayer, setLayerType } from "../functions/utils";
-import { TxtFeatures } from "../components/TxtFeatures";
+
 const defaultState = {
   layers: [],
   layer: {
@@ -30,7 +30,7 @@ const defaultState = {
         },
       },
       TxtMeta: {
-        text: "text",
+        text: "aaaaaaaaaaaaaa",
         fontFamily: "Sans-serif",
         fontSize: 0,
         highlightColor: "color",
@@ -48,7 +48,7 @@ const defaultState = {
         color: [],
         type: [],
       },
-    }
+    },
   },
 };
 
@@ -62,17 +62,16 @@ export const dataReducer = (state = defaultState, action) => {
       return state;
     }
     case "SET_LAYER": {
-      setLayerType(state.layers, action.id)
+      setLayerType(state.layers, action.id);
       return {
-        ...state
-      }
+        ...state,
+      };
     }
-    // case "ADD_TXT_TOOLS": {
-    //   TxtFeatures(state.layer.meta.TxtMeta, state.layers)
-    //   return {
-    //     ...state,
-    //   }
-    // }
+    case "ADD_TEXT": {
+      return {
+        ...state,
+      };
+    }
     default:
       return state;
   }

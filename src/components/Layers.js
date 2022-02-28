@@ -1,10 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
-import React, { useState, useEffect} from "react";
+import { useSelector } from "react-redux";
+import React, { useState} from "react";
 import { Tools } from "./Tools";
 
  export const Layers =({setId}) => {
   const data = useSelector((state) => state.data);
-  const dispatch = useDispatch();
   const [layers, setLayers] = useState(data.layers);
 
   const addLayer = () => {
