@@ -5,8 +5,8 @@ const defaultState = {
   layer: {
     type: "",
     coords: {
-      left: 0,
-      top: 0,
+      x: 300,
+      y: 250,
     },
     rotation: 0,
     meta: {
@@ -30,16 +30,16 @@ const defaultState = {
         },
       },
       TxtMeta: {
-        text: "aaaaaaaaaaaaaa",
+        text: "Click to resize. Double click to edit.",
         fontFamily: "Sans-serif",
-        fontSize: 0,
-        highlightColor: "color",
-        outWidth: 0,
-        outHeight: 0,
-        color: "color",
+        fontSize: 16,
+        highlightColor: "",
+        outWidth: 250,
+        outHeight: 50,
+        color: "black",
         lineHeight: 0,
         letterSpacing: 0,
-        shadow: "shadow",
+        shadow: "",
       },
       SvgMeta: {
         data: "data",

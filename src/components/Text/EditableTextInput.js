@@ -1,7 +1,7 @@
 import React from "react";
 import { Html } from "react-konva-utils";
 
-function getStyle(width, height) {
+function getStyle(width, height,fontFamily,fontSize) {
   const isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
   const baseStyle = {
     width: `${width}px`,
@@ -13,15 +13,15 @@ function getStyle(width, height) {
     outline: "none",
     resize: "none",
     colour: "black",
-    fontSize: "24px",
-    fontFamily: "sans-serif"
+    fontSize: `${fontSize}`,
+    fontFamily: `${fontFamily}`,
   };
   if (isFirefox) {
     return baseStyle;
   }
   return {
     ...baseStyle,
-    margintop: "-4px"
+    margintop: "-4px",
   };
 }
 
@@ -32,11 +32,13 @@ export function EditableTextInput({
   height,
   value,
   onChange,
-  onKeyDown
+  onKeyDown,
+  fontSize,
+  fontFamily,
 }) {
-  const style = getStyle(width, height);
+  const style = getStyle(width, height, fontFamily, fontSize);
   return (
-    <Html groupProps={{ x, y }} divProps={{ style: { opacity: 1 } }}>
+    <Html groupProps={{ x, y }}>
       <textarea
         value={value}
         onChange={onChange}

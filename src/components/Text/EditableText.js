@@ -16,7 +16,9 @@ export function EditableText({
   onResize,
   text,
   width,
-  height
+  height,
+  fontSize,
+  fontFamily
 }) {
   function handleEscapeKeys(e) {
     if ((e.keyCode === RETURN_KEY && !e.shiftKey) || e.keyCode === ESCAPE_KEY) {
@@ -38,6 +40,8 @@ export function EditableText({
         value={text}
         onChange={handleTextChange}
         onKeyDown={handleEscapeKeys}
+        fontSize={fontSize}
+        fontFamily={fontFamily}
       />
     );
   }
@@ -51,6 +55,8 @@ export function EditableText({
       onResize={onResize}
       text={text}
       width={width}
+      fontSize={fontSize}
+      fontFamily={fontFamily}
     />
   );
 }

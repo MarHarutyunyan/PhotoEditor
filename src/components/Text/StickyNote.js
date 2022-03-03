@@ -13,7 +13,9 @@ export function StickyNote({
   onTextResize,
   onTextChange,
   selected,
-  onTextClick
+  onTextClick,
+  fontSize,
+  fontFamily
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [isTransforming, setIsTransforming] = useState(false);
@@ -61,9 +63,10 @@ export function StickyNote({
         onClick={onClick}
         onTap={onClick}
       />
+      
       <EditableText
-        x={20}
-        y={40}
+        x={50}
+        y={50}
         text={text}
         width={width}
         height={height}
@@ -73,6 +76,8 @@ export function StickyNote({
         onToggleEdit={toggleEdit}
         onToggleTransform={toggleTransforming}
         onChange={onTextChange}
+        fontSize={fontSize}
+        fontFamily={fontFamily}
       />
     </Group>
   );

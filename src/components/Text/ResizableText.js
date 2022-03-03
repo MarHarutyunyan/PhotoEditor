@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Text, Transformer } from "react-konva";
+import { useSelector } from "react-redux";
 
 export function ResizableText({
   x,
@@ -9,7 +10,9 @@ export function ResizableText({
   width,
   onResize,
   onClick,
-  onDoubleClick
+  onDoubleClick,
+  fontSize,
+  fontFamily,
 }) {
   const textRef = useRef(null);
   const transformerRef = useRef(null);
@@ -55,8 +58,8 @@ export function ResizableText({
         ref={textRef}
         text={text}
         fill="black"
-        fontFamily="sans-serif"
-        fontSize={24}
+        fontFamily={fontFamily}
+        fontSize={fontSize}
         perfectDrawEnabled={false}
         onTransform={handleResize}
         onClick={onClick}

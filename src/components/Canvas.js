@@ -1,17 +1,31 @@
 import React, { useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { render } from "react-dom";
 import { Stage, Layer } from "react-konva";
 import { StickyNote } from "./Text/StickyNote";
 import "../Main.css";
 
-export const Canvas = ({ layers}) => {
-
-  const [text, setText] = useState("Click to resize. Double click to edit.");
-  const [width, setWidth] = useState(200);
-  const [height, setHeight] = useState(200);
+export const Canvas = () => {
+  const [text, setText] = useState("not text");
+  const [width, setWidth] = useState(250);
+  const [height, setHeight] = useState(50);
   const [selected, setSelected] = useState(false);
-  // const data = useSelector((state) => state.data);
-  // const [layers, setLayers] = useState(data.layers);
+
+  const data = useSelector((state) => state.data);
+  const [layers, setLayers] = useState(data.layers);
+
+  const changeLayerText = (index, value) => {
+    data.layers[index].meta.TxtMeta.text = value;
+    setLayers(data.layers[index].meta.TxtMeta.text);
+  };
+
+  const changeLayerSize = (newWidth, newHeight,index) => {
+    data.layers[index].meta.TxtMeta.outWidth = newWidth;
+    data.layers[index].meta.TxtMeta.outHeight = newHeight;
+    setWidth(layers[index].meta.TxtMeta.width);
+    setHeight(layers[index].meta.TxtMeta.height); 
+  };
+
   return (
     <Stage
       width={900}
@@ -23,34 +37,36 @@ export const Canvas = ({ layers}) => {
       }}
     >
       <Layer background="#fff">
-        {layers.map((layer) =>
+        {data.layers.map((layer, index) =>
           layer.type === "TEXT" ? (
             <StickyNote
-              x={50}
-              y={50}
-              text={text}
+              key={index}
+              x={data.layers[index].coords.x}
+              y={data.layers[index].coords.y}
+              text={layer.meta.TxtMeta.text}
               colour="transparent"
-              onTextChange={(value) => setText(value)}
+              onTextChange={(value) => changeLayerText(index, value)}
               width={width}
               height={height}
               selected={selected}
-              onTextResize={(newWidth, newHeight) => {
-                setWidth(newWidth);
-                setHeight(newHeight);
-              }}
+              onTextResize={(newWidth, newHeight) =>
+                changeLayerSize(newWidth, newHeight,index)
+              }
               onClick={() => {
                 setSelected(!selected);
               }}
               onTextClick={(newSelected) => {
                 setSelected(newSelected);
               }}
+              fontSize={layer.meta.TxtMeta.fontSize}
+              fontFamily={layer.meta.TxtMeta.fontFamily}
             />
           ) : (
             <StickyNote
               x={50}
               y={50}
               text={text}
-              colour="black"
+              colour="transparent"
               onTextChange={(value) => setText(value)}
               width={width}
               height={height}

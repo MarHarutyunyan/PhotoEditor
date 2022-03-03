@@ -1,10 +1,9 @@
 import React from "react";
 import "../Main.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 
 export const Tools = ({setId}) => {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.data);
 
   const AddToData = (id) => {
     dispatch({ type: "ADD_LAYER" });
