@@ -117,3 +117,9 @@ cursor: pointer;
 .konvajs-content{
   background-color: #fff;
 }
+.a{
+  display: none;
+}
+.b{
+  display: inherit;
+}

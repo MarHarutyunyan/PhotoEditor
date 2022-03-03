@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 export const AddingFonts = () => {
-    const fonts = useSelector((state) => state.data.properties.text.Font);
+    const fonts = useSelector((state) => state.data.properties.text.Fonts);
     return (
         <div id="txtFonts">
             <ul>
