@@ -50,6 +50,17 @@ const defaultState = {
       },
     },
   },
+  properties: {
+    text: {
+      Font: ["Sans-serif", "Georgia, serif", "Cursive", "System-Ui", "Monospace", "Fantasy"],
+      Color: ["Black", "White", "Red", "Yellow", "Pink", "Green", "Blue"],
+    },
+    img:{
+      Color:[],
+      Width:[]
+
+    }
+  },
 };
 
 export const dataReducer = (state = defaultState, action) => {

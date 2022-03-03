@@ -1,19 +1,11 @@
 import { useSelector } from "react-redux";
 import React, { useState } from "react";
 import { Tools } from "./Tools";
-
 export const Layers = ({ setId }) => {
-  // const layers = useSelector((state) => state.data.layers);
   const data = useSelector((state) => state.data);
   const [layers, setLayers] = useState(data.layers);
-  
-  const addLayer = () => {
-    setLayers([...data.layers]);
-  };
-
   const [OpenTools, setOpenTools] = useState(false);
   const show = () => setOpenTools(true);
-
   return (
     <div id="layersContainer">
       <div id="layers">
@@ -22,7 +14,7 @@ export const Layers = ({ setId }) => {
             <li key={i}>Layer {i + 1}</li>
           ))}
         </ul>
-        <button id="layer" onClick={(() => addLayer(), show)}>
+        <button id="layer" onClick={(() =>  show())}>
           Add Layer
         </button>
         {OpenTools ? <Tools setId={setId} /> : null}

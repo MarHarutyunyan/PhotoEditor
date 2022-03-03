@@ -1,14 +1,14 @@
 import React from 'react';
 import '../Main.css';
-import { TxtFeatures } from '../components/TxtFeatures';
+import { TxtFeatures } from './Text/TxtFeatures';
 import { ImgFeatures } from './ImgFeatures';
 
-export const Properties = ({id}) => {
+export const Properties = ({ id }) => {
     return (
         <div id='propertiesContainer' >
             <div id='properties'>
-            {id === "TEXT" && <TxtFeatures />}
-            {id === "IMG" && <ImgFeatures />}
+                {id === "TEXT" && <TxtFeatures />}
+                {id === "IMG" && <ImgFeatures />}
             </div>
         </div>
     );
