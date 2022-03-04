@@ -30,7 +30,7 @@ const defaultState = {
         },
       },
       TxtMeta: {
-        text: "Click to resize. Double click to edit.",
+        text: "Click to edit",
         fontFamily: "Sans-serif",
         fontSize: 16,
         highlightColor: "",
@@ -52,14 +52,20 @@ const defaultState = {
   },
   properties: {
     text: {
-      Fonts: ["Sans-serif", "Georgia, serif", "Cursive", "System-Ui", "Monospace", "Fantasy"],
+      Fonts: [
+        "Sans-serif",
+        "Georgia, serif",
+        "Cursive",
+        "System-Ui",
+        "Monospace",
+        "Fantasy",
+      ],
       Colors: ["Black", "White", "Red", "Yellow", "Pink", "Green", "Blue"],
     },
-    img:{
-      Colors:[],
-      Width:[]
-
-    }
+    img: {
+      Color: [],
+      Width: [],
+    },
   },
 };
 
@@ -78,7 +84,11 @@ export const dataReducer = (state = defaultState, action) => {
         ...state,
       };
     }
-    case "ADD_TEXT": {
+    case "CHANGE_FONT": {
+      debugger
+      const font = action.font;
+      const index = action.index;
+      state.layers[index].meta.TxtMeta.fontFamily = font;
       return {
         ...state,
       };

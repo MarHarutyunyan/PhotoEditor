@@ -14,7 +14,7 @@ export const Layers = ({ setId }) => {
             <li key={i}>Layer {i + 1}</li>
           ))}
         </ul>
-        <button id="layer" onClick={(() =>  show())}>
+        <button id="layer" onClick={() => show()}>
           Add Layer
         </button>
         {OpenTools ? <Tools setId={setId} /> : null}
