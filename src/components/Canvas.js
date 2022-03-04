@@ -1,36 +1,45 @@
-import React, { useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { render } from "react-dom";
-import { Stage, Layer } from "react-konva";
-import { StickyNote } from "./Text/StickyNote";
+import React from "react";
+import {useSelector } from "react-redux";
 import "../Main.css";
-
-export const Canvas = () => {
-  const [text, setText] = useState("not text");
-  const [width, setWidth] = useState(250);
-  const [height, setHeight] = useState(50);
-  const [selected, setSelected] = useState(false);
-
+export const Canvas = ({layers,setLayers}) => {
+  // const [text, setText] = useState("not text");
+  // const [width, setWidth] = useState(250);
+  // const [height, setHeight] = useState(50);
+  // const [selected, setSelected] = useState(false);
   const data = useSelector((state) => state.data);
-  const [layers, setLayers] = useState(data.layers);
-
-  const changeLayerText = (index, value) => {
-    data.layers[index].meta.TxtMeta.text = value;
-    setLayers(data.layers[index].meta.TxtMeta.text);
+  // const changeLayerText = (index, value) => {
+  //   data.layers[index].meta.TxtMeta.text = value;
+  //   setLayers(data.layers[index].meta.TxtMeta.text);
+  // };
+  // const changeLayerSize = (newWidth, newHeight, index) => {
+  //   data.layers[index].meta.TxtMeta.outWidth = newWidth;
+  //   data.layers[index].meta.TxtMeta.outHeight = newHeight;
+  //   setWidth(layers[index].meta.TxtMeta.width);
+  //   setHeight(layers[index].meta.TxtMeta.height);
+  // };
+  const selectedLayer = (index) => {
+    layers.forEach((_,i) => {
+      layers[i].selected = false;
+      setLayers( layers[i].selected)
+    });
+    layers[index].selected = true;
+    setLayers( data.layers);
   };
-
-  const changeLayerSize = (newWidth, newHeight, index) => {
-    data.layers[index].meta.TxtMeta.outWidth = newWidth;
-    data.layers[index].meta.TxtMeta.outHeight = newHeight;
-    setWidth(layers[index].meta.TxtMeta.width);
-    setHeight(layers[index].meta.TxtMeta.height);
+  const changeText = (index, value) => {
+    layers[index].meta.TxtMeta.text = value;
   };
-
   return (
     <div id="canvaContainer">
       {data.layers.map((layer, index) =>
         layer.type === "TEXT" ? (
-          <input key={index} type="text" placeholder="Edit Text" id={index} />
+          <input
+            key={index}
+            type="text"
+            placeholder="Edit Text"
+            id={index}
+            onChange={(event) => changeText(index, event.target.value)}
+            onClick={() => selectedLayer(index)}
+          />
         ) : (
           <div key={index}>Not Text</div>
         )
@@ -38,7 +47,6 @@ export const Canvas = () => {
     </div>
   );
 };
-
 // <Stage
 //   width={900}
 //   height={700}

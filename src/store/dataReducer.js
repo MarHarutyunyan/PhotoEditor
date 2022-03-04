@@ -9,6 +9,7 @@ const defaultState = {
       y: 250,
     },
     rotation: 0,
+    selected:false,
     meta: {
       ImgMeta: {
         width: 0,
@@ -60,7 +61,13 @@ const defaultState = {
         "Monospace",
         "Fantasy",
       ],
-      Colors: ["Black", "White", "Red", "Yellow", "Pink", "Green", "Blue"],
+      Size:11,
+      Colors: "#000000",
+      HighlightColors:"#fff",
+      LineHeight:20,
+      LetterSpacing:0,
+
+
     },
     img: {
       Color: [],

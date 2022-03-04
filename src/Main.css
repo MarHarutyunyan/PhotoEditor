@@ -102,7 +102,6 @@ li {
 .invisible {
   visibility: hidden;
 }
-
 div#toolsContainer {
   position: absolute;
   bottom: 120px;
@@ -119,14 +118,20 @@ cursor: pointer;
 .konvajs-content{
   background-color: #fff;
 }
-.a div{
+.hiddenChild div{
   display: none;
 }
 #text{
   border: transparent;
   padding: 5px;
 }
+input{
+ border-color: transparent;
+}
 input:focus{
   outline-color: #8F8E92;
   outline-width: 1px;
+}
+.selected{
+  background-color: red !important;
 }

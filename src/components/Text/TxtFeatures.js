@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { AddingColor } from "./AddingColor";
 import { AddingFonts } from "./AddingFonts";
-
+import { AddingHighlightColor } from "./AddingHighlightColor";
+import { AddingLetterSpacing } from "./AddingLetterSpaceing";
+import { AddingLineHeights } from "./AddingLineHeight";
+import { AddingSize } from "./AddingSize";
 export const TxtFeatures = () => {
   const features = useSelector((state) => state.data.properties.text);
   const txtFeatures = Object.keys(features);
   const [OpenFeature, setOpenFeature] = useState(false);
-  const [a, setCount] = useState(" ");
-  let component;
+  const [selectedFeature, setFeature] = useState("");
   const openFeaturesProperties = (Feature) => {
-    setCount(Feature);
+    setFeature(Feature);
     setOpenFeature(true);
-  };
-  const open = () => {
-    return component;
   };
   return (
     <div id="txtFeautures">
@@ -24,13 +23,21 @@ export const TxtFeatures = () => {
             id={Feature}
             onClick={() => openFeaturesProperties(Feature)}
             key={i}
-            className={a === Feature ? null : 'a'}
+            className={selectedFeature === Feature ? null : "hiddenChild"}
           >
             {Feature}
-            {a === "Fonts" && OpenFeature ? (
+            {selectedFeature === "Fonts" && OpenFeature ? (
               <AddingFonts />
-            ) : a === "Colors" && OpenFeature ? (
+            ) : selectedFeature === "Size" && OpenFeature ? (
+              <AddingSize />
+            ) : selectedFeature === "Colors" && OpenFeature ? (
               <AddingColor />
+            ) : selectedFeature === "HighlightColors" && OpenFeature ? (
+              <AddingHighlightColor />
+            ) : selectedFeature === "LineHeight" && OpenFeature ? (
+              <AddingLineHeights />
+            ) : selectedFeature === "LetterSpacing" && OpenFeature ? (
+              <AddingLetterSpacing />
             ) : null}
           </li>
         ))}
