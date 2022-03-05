@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Canvas } from "./Canvas";
 import { Layers } from "./Layers";
 import "../Main.css";
@@ -8,11 +8,17 @@ export default function Main() {
   const [id, setId] = useState("");
   const data = useSelector((state) => state.data);
   const [layers, setLayers] = useState(data.layers);
+  const [selected, setSelected] = useState([]);
   return (
     <div className="container">
-      <Layers setId={setId} layers={layers} setLayers={setLayers}/>
-      <Canvas layers={layers} setLayers={setLayers} />
-      <Properties id={id} />
+      <Layers
+        setId={setId}
+        layers={layers}
+        setLayers={setLayers}
+        selected={selected}
+      />
+      <Canvas layers={layers} setLayers={setLayers} setSelected={setSelected} />
+      <Properties id={id} selected={selected} />
     </div>
   );
 }

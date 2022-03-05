@@ -1,7 +1,7 @@
 import React from "react";
-import {useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "../Main.css";
-export const Canvas = ({layers,setLayers}) => {
+export const Canvas = ({ layers, setSelected }) => {
   // const [text, setText] = useState("not text");
   // const [width, setWidth] = useState(250);
   // const [height, setHeight] = useState(50);
@@ -17,28 +17,34 @@ export const Canvas = ({layers,setLayers}) => {
   //   setWidth(layers[index].meta.TxtMeta.width);
   //   setHeight(layers[index].meta.TxtMeta.height);
   // };
-  const selectedLayer = (index) => {
-    layers.forEach((_,i) => {
-      layers[i].selected = false;
-      setLayers( layers[i].selected)
-    });
-    layers[index].selected = true;
-    setLayers( data.layers);
+  const selectLayer = (index) => {
+    setSelected([index]);
   };
-  const changeText = (index, value) => {
+  const setText = (index, value) => {
     layers[index].meta.TxtMeta.text = value;
   };
+  function getStyle(i) {
+    const layer = layers[i].meta.TxtMeta;
+    return {
+      width: layer.width,
+      height: layer.height,
+      color: layer.color,
+      fontSize: layer.fontSize,
+      fontFamily: layer.fontFamily,
+    };
+  }
+
   return (
     <div id="canvaContainer">
       {data.layers.map((layer, index) =>
         layer.type === "TEXT" ? (
-          <input
+          <textarea
+            style={getStyle(index)}
             key={index}
             type="text"
             placeholder="Edit Text"
-            id={index}
-            onChange={(event) => changeText(index, event.target.value)}
-            onClick={() => selectedLayer(index)}
+            onChange={(event) => setText(index, event.target.value)}
+            onClick={() => selectLayer(index)}
           />
         ) : (
           <div key={index}>Not Text</div>

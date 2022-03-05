@@ -115,9 +115,6 @@ div#toolsContainer {
 #tools div {
 cursor: pointer;
 }
-.konvajs-content{
-  background-color: #fff;
-}
 .hiddenChild div{
   display: none;
 }
@@ -125,10 +122,10 @@ cursor: pointer;
   border: transparent;
   padding: 5px;
 }
-input{
+textarea{
  border-color: transparent;
 }
-input:focus{
+textarea:focus{
   outline-color: #8F8E92;
   outline-width: 1px;
 }

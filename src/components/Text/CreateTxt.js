@@ -1,6 +1,4 @@
-import React, { Component } from 'react'
-import { EditText } from 'react-edit-text'
-// import EdiText from 'react-editext'
+import React from 'react'
 
 export const CreateTxt = () => {
     return (

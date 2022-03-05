@@ -1,4 +1,4 @@
-import { addLayer, checkForEmptyLayer, setLayerType } from "../functions/utils";
+import { addLayer, setLayerType } from "../functions/utils";
 
 const defaultState = {
   layers: [],
@@ -9,7 +9,6 @@ const defaultState = {
       y: 250,
     },
     rotation: 0,
-    selected:false,
     meta: {
       ImgMeta: {
         width: 0,
@@ -33,10 +32,10 @@ const defaultState = {
       TxtMeta: {
         text: "Click to edit",
         fontFamily: "Sans-serif",
-        fontSize: 16,
+        fontSize: 24,
         highlightColor: "",
-        outWidth: 250,
-        outHeight: 50,
+        width: 250,
+        height: 50,
         color: "black",
         lineHeight: 0,
         letterSpacing: 0,
@@ -61,13 +60,11 @@ const defaultState = {
         "Monospace",
         "Fantasy",
       ],
-      Size:11,
+      Size: 11,
       Colors: "#000000",
-      HighlightColors:"#fff",
-      LineHeight:20,
-      LetterSpacing:0,
-
-
+      HighlightColors: "#fff",
+      LineHeight: 20,
+      LetterSpacing: 0,
     },
     img: {
       Color: [],
@@ -79,10 +76,8 @@ const defaultState = {
 export const dataReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "ADD_LAYER": {
-      if (checkForEmptyLayer(state.layers)) {
-        const CopyLayer = JSON.parse(JSON.stringify(state.layer));
-        addLayer(state.layers, CopyLayer);
-      }
+      const CopyLayer = JSON.parse(JSON.stringify(state.layer));
+      addLayer(state.layers, CopyLayer);
       return state;
     }
     case "SET_LAYER": {
@@ -92,14 +87,21 @@ export const dataReducer = (state = defaultState, action) => {
       };
     }
     case "CHANGE_FONT": {
-      debugger
       const font = action.font;
-      const index = action.index;
-      state.layers[index].meta.TxtMeta.fontFamily = font;
+      const selected = action.selected[0];
+      state.layers[selected].meta.TxtMeta.fontFamily = font;
       return {
         ...state,
       };
     }
+    case "CHANGE_COLOR": {
+      const color = action.color;
+      const selected = action.selected[0];
+      state.layers[selected].meta.TxtMeta.color = color;
+      return {
+        ...state,
+      };
+    } //repeats
     default:
       return state;
   }

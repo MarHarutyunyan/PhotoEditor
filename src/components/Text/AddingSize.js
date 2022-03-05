@@ -23,7 +23,8 @@ export const AddingSize = () => {
     return (
         <div id="size">
             <button onClick={subtracting}>-</button>
-            <input type="text" value={quantity}  />
+            <input type="text" value={quantity} />
+            {console.log(quantity)}
             <button onClick={adding}>+</button>
         </div>
     );
