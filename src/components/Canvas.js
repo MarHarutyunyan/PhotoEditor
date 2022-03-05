@@ -23,7 +23,7 @@ export const Canvas = ({ layers, setSelected }) => {
   const setText = (index, value) => {
     layers[index].meta.TxtMeta.text = value;
   };
-  function getStyle(i) {
+  const getStyle = (i) => {
     const layer = layers[i].meta.TxtMeta;
     return {
       width: layer.width,
@@ -32,7 +32,7 @@ export const Canvas = ({ layers, setSelected }) => {
       fontSize: layer.fontSize,
       fontFamily: layer.fontFamily,
     };
-  }
+  };
 
   return (
     <div id="canvaContainer">
