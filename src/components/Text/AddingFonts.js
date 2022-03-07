@@ -9,10 +9,10 @@ export const AddingFonts = ({ selected }) => {
     dispatch({ type: "CHANGE_FONT", font: font, selected: selected });
   };
   return (
-    <div id="txtFonts">
+    <div>
       <ul>
         {fonts.map((font, i) => (
-          <li id={i} key={i} onClick={() => changeFont(font, selected)}>
+          <li key={i} onClick={() => changeFont(font, selected)}>
             {font}
           </li>
         ))}

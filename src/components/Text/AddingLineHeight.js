@@ -21,8 +21,8 @@ export const AddingLineHeights = () => {
     }
 
     return (
-        <div id="lineHeight">
-            <div class="slidecontainer">
+        <div>
+            <div className="slidecontainer">
                 <input type="range" min="1" max="100" value={quantity} /> {quantity}
             </div>
 

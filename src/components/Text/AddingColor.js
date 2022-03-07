@@ -7,10 +7,10 @@ export const AddingColor = ({ selected }) => {
   const dispatch = useDispatch();
   const handleOnChange = (e) => {
     setColor(e.target.value);
-    dispatch({ type: "CHANGE_COLOR", color: color, selected: selected });
+    dispatch({ type: "CHANGE_COLOR", color, selected });
   };
   return (
-    <div id="txtColor">
+    <div>
       <input type="color" value={color} onChange={handleOnChange} /> {color}
     </div>
   );

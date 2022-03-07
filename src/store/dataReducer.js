@@ -78,9 +78,6 @@ export const dataReducer = (state = defaultState, action) => {
     case "ADD_LAYER": {
       const CopyLayer = JSON.parse(JSON.stringify(state.layer));
       addLayer(state.layers, CopyLayer);
-      return state;
-    }
-    case "SET_LAYER": {
       setLayerType(state.layers, action.id);
       return {
         ...state,
@@ -101,7 +98,7 @@ export const dataReducer = (state = defaultState, action) => {
       return {
         ...state,
       };
-    } //repeats
+    }
     default:
       return state;
   }

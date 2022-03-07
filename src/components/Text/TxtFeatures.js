@@ -16,11 +16,10 @@ export const TxtFeatures = ({selected}) => {
     setOpenFeature(true);
   };
   return (
-    <div id="txtFeautures">
+    <div>
       <ul>
         {txtFeatures.map((Feature, i) => (
           <li
-            id={Feature}
             onClick={() => openFeaturesProperties(Feature)}
             key={i}
             className={selectedFeature === Feature ? null : "hiddenChild"}

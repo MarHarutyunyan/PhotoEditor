@@ -16,13 +16,13 @@ body {
   height: 100vh;
   background-color: #444;
 }
-#layersContainer,
-#propertiesContainer {
+.layersContainer,
+.propertiesContainer {
   width: 20%;
   height: 90vh;
   overflow-y: auto;
 }
-#canvaContainer {
+.canvaContainer {
   width: 80%;
   height: 90%;
   background-color: #fff;
@@ -33,7 +33,7 @@ canvas {
   border: 1px solid transparent;
   background-color: #fff;
 }
-#layers {
+.layers {
   width: 100%;
   height: 100%;
   display: flex;
@@ -42,37 +42,37 @@ canvas {
   align-items: center;
   overflow: hidden;
 }
-#layers ul{
+.layers ul{
   width: 90%;
   height: 90%;
   overflow-y: auto;
   margin: 0 0 10px 0;
 }
-#properties div ul{
+.properties div ul{
   width: 90%;
   height: 90%;
   overflow-y: auto;
   margin: 0 0 10px 0;
 }
-#layers ul::-webkit-scrollbar,
-#properties div ul::-webkit-scrollbar {
+.layers ul::-webkit-scrollbar,
+.properties div ul::-webkit-scrollbar {
   width: 5px;
   cursor: pointer;
 }
-#layers ul::-webkit-scrollbar-thumb,
-#properties div ul::-webkit-scrollbar-thumb {
+.layers ul::-webkit-scrollbar-thumb,
+.properties div ul::-webkit-scrollbar-thumb {
   background: #8F8E92;
   border-radius: 10px;
 }
-#layers li,
-#properties div li {
+.layers li,
+.properties div li {
   margin: 0 10px 10px 10px;
   padding: 15px 0;
   background-color: #2B2B2B;
   color: #fff;
   cursor: pointer;
 }
-button#layer {
+button.layer {
   width: 90%;
   padding: 15px 0;
   border-radius: 30px;
@@ -83,14 +83,14 @@ ul,
 li {
   list-style: none;
 }
-#properties {
+.properties {
   width: 100%;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-#properties div ul{
+.properties div ul{
   margin: 0 10px 10px 10px;
   padding: 15px 0;
   color: #fff;
@@ -102,7 +102,7 @@ li {
 .invisible {
   visibility: hidden;
 }
-div#toolsContainer {
+div.toolsContainer {
   position: absolute;
   bottom: 120px;
   z-index: 1;
@@ -112,13 +112,13 @@ div#toolsContainer {
   color: #fff;
   border-radius: 10px;
 }
-#tools div {
+.tools div {
 cursor: pointer;
 }
 .hiddenChild div{
   display: none;
 }
-#text{
+.text{
   border: transparent;
   padding: 5px;
 }

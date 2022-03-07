@@ -5,8 +5,8 @@ import { ImgFeatures } from "./ImgFeatures";
 
 export const Properties = ({ id, selected }) => {
   return (
-    <div id="propertiesContainer">
-      <div id="properties">
+    <div className="propertiesContainer">
+      <div className="properties">
         {id === "TEXT" && <TxtFeatures selected={selected} />}
         {id === "IMG" && <ImgFeatures />}
       </div>

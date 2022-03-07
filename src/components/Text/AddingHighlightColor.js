@@ -8,7 +8,7 @@ export const AddingHighlightColor = () => {
         setHighlightColors(e.target.value);
      }
     return (
-        <div id="txtHighlightColor">
+        <div>
             <input type="color"  value={highlightColor} onChange={handleOnChange} /> {highlightColor}
         </div>
     );

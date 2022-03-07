@@ -6,23 +6,20 @@ export const AddingLetterSpacing = () => {
     const [count, setCount] = useState(letterSpacing);
     const [quantity, setQuantity] = useState(letterSpacing);
     const adding = () => {
-        handleAddOne();
+        changeCountBy(1);
         setQuantity(count)
     }
     const subtracting = () => {
-        handleSubtractOne();
+        changeCountBy(-1);
         setQuantity(count);
     }
-    const handleSubtractOne = () => {
-        if (count >= 0) setCount(count - 1);
-    }
-    const handleAddOne = () => {
-        setCount(count + 1);
+    const changeCountBy = (num) => {
+        setCount(count => Math.max(0, count + num));
     }
 
     return (
-        <div id="letterSpacing">
-            <div class="slidecontainer">
+        <div>
+            <div className="slidecontainer">
                 <input type="range" min="1" max="100" value={quantity} /> {quantity}
             </div>
 

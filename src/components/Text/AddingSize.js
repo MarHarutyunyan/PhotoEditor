@@ -6,22 +6,19 @@ export const AddingSize = () => {
     const [count, setCount] = useState(size);
     const [quantity, setQuantity] = useState(size);
     const adding = () => {
-        handleAddOne();
+        changeCountBy(1);
         setQuantity(count)
     }
     const subtracting = () => {
-        handleSubtractOne();
+        changeCountBy(-1);
         setQuantity(count);
     }
-    const handleSubtractOne = () => {
-        setCount(count - 1);
-    }
-    const handleAddOne = () => {
-        setCount(count + 1);
+    const changeCountBy = (num) => {
+        setCount(count => Math.max(0, count + num));
     }
 
     return (
-        <div id="size">
+        <div>
             <button onClick={subtracting}>-</button>
             <input type="text" value={quantity} />
             {console.log(quantity)}

@@ -6,14 +6,13 @@ export const Tools = ({ setId }) => {
   const dispatch = useDispatch();
 
   const AddToData = (id) => {
-    dispatch({ type: "ADD_LAYER" });
-    dispatch({ type: "SET_LAYER", id: id });
+    dispatch({ type: "ADD_LAYER", id }); 
     setId(id);
   };
 
   return (
-    <div id="toolsContainer">
-      <div id="tools">
+    <div className="toolsContainer">
+      <div className="tools">
         <div onClick={() => AddToData("IMG")}>Img</div>
         <div onClick={() => AddToData("TEXT")}>Text</div>
         <div onClick={() => AddToData("EFFECTS")}>Effects</div>

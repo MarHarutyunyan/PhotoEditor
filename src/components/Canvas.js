@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import "../Main.css";
-export const Canvas = ({ layers, setSelected }) => {
+export const Canvas = ({ layers, setSelected, textarea1 ,setTextarea}) => {
+   textarea1 = useRef(null);
   // const [text, setText] = useState("not text");
   // const [width, setWidth] = useState(250);
   // const [height, setHeight] = useState(50);
@@ -18,6 +19,7 @@ export const Canvas = ({ layers, setSelected }) => {
   //   setHeight(layers[index].meta.TxtMeta.height);
   // };
   const selectLayer = (index) => {
+    setTextarea(textarea1);
     setSelected([index]);
   };
   const setText = (index, value) => {
@@ -35,7 +37,7 @@ export const Canvas = ({ layers, setSelected }) => {
   };
 
   return (
-    <div id="canvaContainer">
+    <div className="canvaContainer" ref={textarea1}>
       {data.layers.map((layer, index) =>
         layer.type === "TEXT" ? (
           <textarea

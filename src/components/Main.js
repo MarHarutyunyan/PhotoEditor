@@ -9,6 +9,7 @@ export default function Main() {
   const data = useSelector((state) => state.data);
   const [layers, setLayers] = useState(data.layers);
   const [selected, setSelected] = useState([]);
+  const [textarea1, setTextarea] = useState(null);
   return (
     <div className="container">
       <Layers
@@ -16,8 +17,15 @@ export default function Main() {
         layers={layers}
         setLayers={setLayers}
         selected={selected}
+        setSelected={setSelected}
+        textarea1={textarea1}
       />
-      <Canvas layers={layers} setLayers={setLayers} setSelected={setSelected} />
+      <Canvas
+        layers={layers}
+        setSelected={setSelected}
+        textarea1={textarea1}
+        setTextarea={setTextarea}
+      />
       <Properties id={id} selected={selected} />
     </div>
   );
