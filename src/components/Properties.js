@@ -4,6 +4,7 @@ import { TxtFeatures } from "./Text/TxtFeatures";
 import { ImgFeatures } from "./ImgFeatures";
 
 export const Properties = ({ id, selected }) => {
+  console.log(selected);
   return (
     <div className="propertiesContainer">
       <div className="properties">
