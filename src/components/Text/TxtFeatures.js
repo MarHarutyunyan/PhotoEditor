@@ -5,9 +5,9 @@ import { AddingColor } from "./AddingColor";
 import { AddingFonts } from "./AddingFonts";
 import { AddingHighlightColor } from "./AddingHighlightColor";
 import { AddingLetterSpacing } from "./AddingLetterSpaceing";
-import { AddingLineHeights } from "./AddingLineHeight";
+import { AddingLineHeight } from "./AddingLineHeight";
 import { AddingSize } from "./AddingSize";
-export const TxtFeatures = ({selected,layers}) => {
+export const TxtFeatures = ({ selected, layers }) => {
   const features = useSelector((state) => state.data.properties.text);
   const txtFeatures = Object.keys(features);
   const [OpenFeature, setOpenFeature] = useState(false);
@@ -28,16 +28,21 @@ export const TxtFeatures = ({selected,layers}) => {
             {Feature}
             {selectedFeature === FONT && OpenFeature ? (
               <AddingFonts selected={selected} layers={layers} />
-            ) : selectedFeature === SIZE && OpenFeature ? (
-              <AddingSize selected={selected} />
-            ) : selectedFeature === COLOR && OpenFeature ? (
-              <AddingColor selected={selected} />
-            ) : selectedFeature === HIGHLIGHTCOLOR && OpenFeature ? (
-              <AddingHighlightColor selected={selected} />
-            ) : selectedFeature === LINEHEIGHT && OpenFeature ? (
-              <AddingLineHeights selected={selected} />
-            ) : selectedFeature === LETTERSPACING && OpenFeature ? (
-              <AddingLetterSpacing selected={selected} />
+            ) : 
+            selectedFeature === SIZE && OpenFeature ? (
+              <AddingSize selected={selected} layers={layers} />
+            ) :
+             selectedFeature === COLOR && OpenFeature ? (
+              <AddingColor selected={selected} layers={layers} />
+            ) : 
+            selectedFeature === HIGHLIGHTCOLOR && OpenFeature ? (
+              <AddingHighlightColor selected={selected} layers={layers} />
+            ) : 
+            selectedFeature === LINEHEIGHT && OpenFeature ? (
+              <AddingLineHeight selected={selected} layers={layers} />
+            ) : 
+            selectedFeature === LETTERSPACING && OpenFeature ? (
+              <AddingLetterSpacing selected={selected} layers={layers} />
             ) : null}
           </li>
         ))}

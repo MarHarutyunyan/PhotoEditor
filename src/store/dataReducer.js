@@ -32,11 +32,11 @@ const defaultState = {
         text: "Click to edit",
         fontFamily: "Sans-serif",
         fontSize: 24,
-        highlightColor: "",
+        highlightColor: "#ffffff",
         width: 250,
         height: 50,
         color: "#000000",
-        lineHeight: 0,
+        lineHeight: 1,
         letterSpacing: 0,
         shadow: "",
       },
@@ -60,9 +60,9 @@ const defaultState = {
         "Fantasy",
       ],
       Size: 11,
-      Colors: "#000000",
-      HighlightColors: "#fff",
-      LineHeight: 20,
+      Color: "#000000",
+      HighlightColor: "#fff",
+      LineHeight: 0,
       LetterSpacing: 0,
     },
     img: {
@@ -77,6 +77,14 @@ export const dataReducer = (state = defaultState, action) => {
       const CopyLayer = JSON.parse(JSON.stringify(state.layer));
       addLayer(state.layers, CopyLayer);
       setLayerType(state.layers, action.id);
+      return {
+        ...state,
+      };
+    }
+    case "CHANGE_TEXT": {
+      const value = action.value;
+      const index = action.index;
+      state.layers[index].meta.TxtMeta.text = value;
       return {
         ...state,
       };
@@ -97,14 +105,39 @@ export const dataReducer = (state = defaultState, action) => {
         ...state,
       };
     }
-    case "CHANGE_TEXT": {
-      const value = action.value;
-      const index = action.index;
-      state.layers[index].meta.TxtMeta.text = value;
+    case "CHANGE_HIGHLIGHT_COLOR": {
+      const highlightColor = action.highlightColor;
+      const selected = action.selected[0];
+      state.layers[selected].meta.TxtMeta.highlightColor = highlightColor;
       return {
         ...state,
       };
     }
+    case "CHANGE_FONT_SIZE": {
+      const fontSize = action.fontSize;
+      const selected = action.selected[0];
+      state.layers[selected].meta.TxtMeta.fontSize = fontSize;
+      return {
+        ...state,
+      };
+    }
+    case "CHANGE_LETTER_SPACING": {
+      const letterSpacing = action.letterSpacing;
+      const selected = action.selected[0];
+      state.layers[selected].meta.TxtMeta.letterSpacing = letterSpacing;
+      return {
+        ...state,
+      };
+    }
+    case "CHANGE_LINE_HEIGHT": {
+      const lineHeight = action.lineHeight;
+      const selected = action.selected[0];
+      state.layers[selected].meta.TxtMeta.lineHeight = lineHeight;
+      return {
+        ...state,
+      };
+    }
+    
     default:
       return state;
   }

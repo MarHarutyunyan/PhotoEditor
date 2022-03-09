@@ -1,43 +1,27 @@
-// import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Counting } from "../../functions/Counting";
 
-// import { adding, subtracting } from "../../functions/Counting";
-// export const AddingSize = ({ selected }) => {
-//     const size = useSelector((state) => state.data.properties.text.Size);
-//     const dispatch = useDispatch();
-//     const changeSize = (value, selected) => {
-//         dispatch({ type: "CHANGE_SIZE", size: value, selected: selected });
-//     };
-//     const data = useSelector((state) => state.data);
-//     const [layers, setLayers] = useState(data.layers);
-//     // return (
-//     //     <div>
-//     //         {Counting(size)}
-//     //     </div>
-//     // );
-//     const [quantity, setQuantity] = useState(size);
+export const AddingSize = ({ selected, layers }) => {
+    const dispatch = useDispatch();
+    const adding = () => {
+        changeCountBy(1);
+    }
+    const subtracting = () => {
+        changeCountBy(-1);
+    }
+    const changeCountBy = (num) => {
+        dispatch({ type: "CHANGE_FONT_SIZE", fontSize: Math.max(0, layers[selected[0]].meta.TxtMeta.fontSize + num), selected });
+    }
 
-//     const adding = () => {
-//         changeCountBy(1);
-//         changeSize(quantity, selected) ;
-//     }
-//     const subtracting = () => {
-//         changeCountBy(-1);
-//     }
-//     const changeCountBy = (num) => {
-//         setQuantity(count => Math.max(0, count + num))
-//     }
-
-//     return (
-//         <div>
-//             <button onClick={subtracting}>-</button>
-//             <textarea
-//                 type="text"
-//                 onChange={(event) => changeSize(event.target.value, selected)}
-//                 value={quantity}
-//             />
-//             {console.log(quantity)}
-//             <button onClick={adding}>+</button>
-//         </div>
-//     );
-// };
+    return (
+        <div>
+            {/* <div className="slidecontainer">
+                <input type="range" min="1" max="100" value={layers[selected[0]].meta.TxtMeta.letterSpacing} /> {layers[selected[0]].meta.TxtMeta.letterSpacing}
+            </div> */}
+            <button onClick={subtracting}>-</button>
+            <input type="number" value={layers[selected[0]].meta.TxtMeta.fontSize} onChange={changeCountBy} />
+            <button onClick={adding}>+</button>
+        </div >
+    );
+};
