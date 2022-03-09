@@ -10,6 +10,7 @@ export const Tools = ({ setId }) => {
     dispatch({ type: "ADD_LAYER", id }); 
     setId(id);
   };
+  
 
   return (
     <div className="toolsContainer">

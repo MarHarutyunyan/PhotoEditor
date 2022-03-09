@@ -35,7 +35,7 @@ const defaultState = {
         highlightColor: "",
         width: 250,
         height: 50,
-        color: "black",
+        color: "#000000",
         lineHeight: 0,
         letterSpacing: 0,
         shadow: "",
@@ -109,3 +109,4 @@ export const dataReducer = (state = defaultState, action) => {
       return state;
   }
 };
+
