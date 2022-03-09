@@ -18,9 +18,9 @@ export const Canvas = ({ layers, setSelected, selected, textDom }) => {
       color: layer.color,
       fontSize: layer.fontSize,
       fontFamily: layer.fontFamily,
-      backgroundColor:layer.highlightColor,
-      letterSpacing:layer.letterSpacing,
-      lineHeight: layer.lineHeight
+      backgroundColor: layer.highlightColor,
+      letterSpacing: layer.letterSpacing,
+      lineHeight: layer.lineHeight,
     };
   };
   useEffect(() => {

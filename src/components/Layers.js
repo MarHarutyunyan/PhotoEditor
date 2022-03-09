@@ -1,10 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect } from "react";
 import { Tools } from "./Tools";
 export const Layers = ({ setId, layers, selected, setSelected }) => {
   const [OpenTools, setOpenTools] = useState(false);
-  const show = () => setOpenTools(true);
+  const [isOpen, setIsOpen] = useState(true);
+  const show = () => {
+    setOpenTools(true);
+    setIsOpen(true);
+  };
   function selectLayer(index) {
-      setSelected([index]);
+    setSelected([index]);
   }
   return (
     <div className="layersContainer">
@@ -28,6 +32,8 @@ export const Layers = ({ setId, layers, selected, setSelected }) => {
             setId={setId}
             setSelected={setSelected}
             index={layers.length}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
           />
         ) : null}
       </div>

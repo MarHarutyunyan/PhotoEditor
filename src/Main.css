@@ -55,14 +55,15 @@ canvas {
   margin: 0 0 10px 0;
 }
 .layers ul::-webkit-scrollbar,
-.properties div ul::-webkit-scrollbar {
+.propertiesContainer::-webkit-scrollbar {
   width: 5px;
   cursor: pointer;
 }
 .layers ul::-webkit-scrollbar-thumb,
-.properties div ul::-webkit-scrollbar-thumb {
+.propertiesContainer::-webkit-scrollbar-thumb {
   background: #8f8e92;
   border-radius: 10px;
+  cursor: pointer;
 }
 .layers li,
 .properties div li {
@@ -71,6 +72,7 @@ canvas {
   background-color: #2b2b2b;
   color: #fff;
   cursor: pointer;
+  border-radius: 30px;
 }
 button.layer {
   width: 90%;
@@ -112,7 +114,7 @@ div.toolsContainer {
   color: #fff;
   border-radius: 10px;
 }
-.tools div {
+.toolsContainer div div {
   cursor: pointer;
 }
 .hiddenChild div {
@@ -131,4 +133,47 @@ textarea:focus {
 }
 .selected {
   background-color: red !important;
+}
+.textLineProp {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.textLineProp input {
+  width: 20%;
+  border-color: transparent;
+  text-align: center;
+  outline: none;
+}
+.textLineProp button {
+  padding: 5px 20px;
+  cursor: pointer;
+  border-color: transparent;
+  background-color: #fff;
+  font-size: 16px;
+}
+.leftMinusButton {
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+}
+.rightPlusButton {
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+}
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.hidden{
+  display: none;
+}
+
+.textSizeProp input{
+  width: 40%;
+  padding: 5px 0;
+  border-radius: 20px;
+  border-color: transparent;
+  text-align: center;
+  font-size: 15px;
+  margin: 5px;
+  outline: none;
 }
