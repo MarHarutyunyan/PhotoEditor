@@ -9,9 +9,9 @@ export const Tools = ({ setId,setSelected,index }) => {
   const AddToData = (id,index) => {
     dispatch({ type: "ADD_LAYER", id }); 
     setId(id);
-    console.log(index);
     setSelected([index]);
   };
+  
 
   return (
     <div className="toolsContainer">

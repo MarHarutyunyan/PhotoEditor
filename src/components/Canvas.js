@@ -20,7 +20,7 @@ export const Canvas = ({ layers, setSelected, selected, textDom }) => {
       fontFamily: layer.fontFamily,
       backgroundColor:layer.highlightColor,
       letterSpacing:layer.letterSpacing,
-      lineHeight:layer.lineHeight
+      lineHeight: layer.lineHeight
     };
   };
   useEffect(() => {
