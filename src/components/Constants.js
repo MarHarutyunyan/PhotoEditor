@@ -1,0 +1,10 @@
+export const TEXT = "TEXT";
+export const IMG = "IMG";
+export const EFFECTS = "EFFECTS";
+export const VECTOR = "VECTOR";
+export const FONT = "Fonts";
+export const SIZE = "Size";
+export const COLOR = "Colors";
+export const HIGHLIGHTCOLOR = "HighlightColor";
+export const LINEHEIGHT = "LineHeight";
+export const LETTERSPACING = "LetterSpacing";

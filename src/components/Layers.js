@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Tools } from "./Tools";
-
-export const Layers = ({ setId, layers, selected, setSelected, textarea1 }) => {
+import { NumberContext } from "./Main";
+export const Layers = ({ setId, layers, selected, setSelected }) => {
   const [OpenTools, setOpenTools] = useState(false);
   const show = () => setOpenTools(true);
-
+  const context = useContext(NumberContext);
   function selectLayer(index) {
-    if (textarea1) {
+    if (context.textDom) {
       setSelected([index]);
-      textarea1.current.children[index].focus();
+      context.textDom.current.children[index].focus();
     }
   }
-
   return (
     <div className="layersContainer">
       <div className="layers">

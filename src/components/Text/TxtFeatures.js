@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { COLOR, FONT, HIGHLIGHTCOLOR, LETTERSPACING, LINEHEIGHT, SIZE } from "../Constants";
 import { AddingColor } from "./AddingColor";
 import { AddingFonts } from "./AddingFonts";
 import { AddingHighlightColor } from "./AddingHighlightColor";
@@ -25,17 +26,17 @@ export const TxtFeatures = ({selected}) => {
             className={selectedFeature === Feature ? null : "hiddenChild"}
           >
             {Feature}
-            {selectedFeature === "Fonts" && OpenFeature ? (
+            {selectedFeature === FONT && OpenFeature ? (
               <AddingFonts selected={selected} />
-            ) : selectedFeature === "Size" && OpenFeature ? (
+            ) : selectedFeature === SIZE && OpenFeature ? (
               <AddingSize selected={selected} />
-            ) : selectedFeature === "Colors" && OpenFeature ? (
+            ) : selectedFeature === COLOR && OpenFeature ? (
               <AddingColor selected={selected} />
-            ) : selectedFeature === "HighlightColors" && OpenFeature ? (
+            ) : selectedFeature === HIGHLIGHTCOLOR && OpenFeature ? (
               <AddingHighlightColor selected={selected} />
-            ) : selectedFeature === "LineHeight" && OpenFeature ? (
+            ) : selectedFeature === LINEHEIGHT && OpenFeature ? (
               <AddingLineHeights selected={selected} />
-            ) : selectedFeature === "LetterSpacing" && OpenFeature ? (
+            ) : selectedFeature === LETTERSPACING && OpenFeature ? (
               <AddingLetterSpacing selected={selected} />
             ) : null}
           </li>

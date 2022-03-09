@@ -1,5 +1,4 @@
 import { addLayer, setLayerType } from "../functions/utils";
-
 const defaultState = {
   layers: [],
   layer: {
@@ -72,7 +71,6 @@ const defaultState = {
     },
   },
 };
-
 export const dataReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "ADD_LAYER": {
@@ -95,6 +93,14 @@ export const dataReducer = (state = defaultState, action) => {
       const color = action.color;
       const selected = action.selected[0];
       state.layers[selected].meta.TxtMeta.color = color;
+      return {
+        ...state,
+      };
+    }
+    case "CHANGE_TEXT": {
+      const value = action.value;
+      const index = action.index;
+      state.layers[index].meta.TxtMeta.text = value;
       return {
         ...state,
       };

@@ -1,6 +1,7 @@
 import React from "react";
 import "../Main.css";
 import { useDispatch } from "react-redux";
+import { EFFECTS, IMG, TEXT, VECTOR } from "./Constants";
 
 export const Tools = ({ setId }) => {
   const dispatch = useDispatch();
@@ -13,10 +14,10 @@ export const Tools = ({ setId }) => {
   return (
     <div className="toolsContainer">
       <div className="tools">
-        <div onClick={() => AddToData("IMG")}>Img</div>
-        <div onClick={() => AddToData("TEXT")}>Text</div>
-        <div onClick={() => AddToData("EFFECTS")}>Effects</div>
-        <div onClick={() => AddToData("VECTOR")}>Vectors</div>
+        <div onClick={() => AddToData(IMG)}>Img</div>
+        <div onClick={() => AddToData(TEXT)}>Text</div>
+        <div onClick={() => AddToData(EFFECTS)}>Effects</div>
+        <div onClick={() => AddToData(VECTOR)}>Vectors</div>
       </div>
     </div>
   );

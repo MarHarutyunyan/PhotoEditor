@@ -2,14 +2,17 @@ import React from "react";
 import "../Main.css";
 import { TxtFeatures } from "./Text/TxtFeatures";
 import { ImgFeatures } from "./ImgFeatures";
+import { IMG, TEXT } from "./Constants";
 
-export const Properties = ({ id, selected }) => {
-  console.log(selected);
+export const Properties = ({ id,layers, selected, setSelected }) => {
+// layers[selected]
   return (
     <div className="propertiesContainer">
       <div className="properties">
-        {id === "TEXT" && <TxtFeatures selected={selected} />}
-        {id === "IMG" && <ImgFeatures />}
+        {/* {console.log(layers[selected])
+        } */}
+        {id === TEXT && <TxtFeatures selected={selected} />}
+        {id === IMG && <ImgFeatures />}
       </div>
     </div>
   );
