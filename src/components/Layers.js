@@ -1,15 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Tools } from "./Tools";
-import { NumberContext } from "./Main";
 export const Layers = ({ setId, layers, selected, setSelected }) => {
   const [OpenTools, setOpenTools] = useState(false);
   const show = () => setOpenTools(true);
-  const context = useContext(NumberContext);
   function selectLayer(index) {
-    if (context.textDom) {
       setSelected([index]);
-      context.textDom.current.children[index].focus();
-    }
   }
   return (
     <div className="layersContainer">
@@ -28,7 +23,13 @@ export const Layers = ({ setId, layers, selected, setSelected }) => {
         <button className="layer" onClick={show}>
           Add Layer
         </button>
-        {OpenTools ? <Tools setId={setId} /> : null}
+        {OpenTools ? (
+          <Tools
+            setId={setId}
+            setSelected={setSelected}
+            index={layers.length}
+          />
+        ) : null}
       </div>
     </div>
   );
