@@ -42,13 +42,13 @@ canvas {
   align-items: center;
   overflow: hidden;
 }
-.layers ul{
+.layers ul {
   width: 90%;
   height: 90%;
   overflow-y: auto;
   margin: 0 0 10px 0;
 }
-.properties div ul{
+.properties div ul {
   width: 90%;
   height: 90%;
   overflow-y: auto;
@@ -61,14 +61,14 @@ canvas {
 }
 .layers ul::-webkit-scrollbar-thumb,
 .properties div ul::-webkit-scrollbar-thumb {
-  background: #8F8E92;
+  background: #8f8e92;
   border-radius: 10px;
 }
 .layers li,
 .properties div li {
   margin: 0 10px 10px 10px;
   padding: 15px 0;
-  background-color: #2B2B2B;
+  background-color: #2b2b2b;
   color: #fff;
   cursor: pointer;
 }
@@ -90,7 +90,7 @@ li {
   flex-direction: column;
   justify-content: center;
 }
-.properties div ul{
+.properties div ul {
   margin: 0 10px 10px 10px;
   padding: 15px 0;
   color: #fff;
@@ -108,27 +108,27 @@ div.toolsContainer {
   z-index: 1;
   left: 200px;
   width: 10%;
-  background-color: #2B2B2B;
+  background-color: #2b2b2b;
   color: #fff;
   border-radius: 10px;
 }
 .tools div {
-cursor: pointer;
+  cursor: pointer;
 }
-.hiddenChild div{
+.hiddenChild div {
   display: none;
 }
-.text{
+.text {
   border: transparent;
   padding: 5px;
 }
-textarea{
- border-color: transparent;
+textarea {
+  border-color: transparent;
 }
-textarea:focus{
-  outline-color: #8F8E92;
+textarea:focus {
+  outline-color: #8f8e92;
   outline-width: 1px;
 }
-.selected{
+.selected {
   background-color: red !important;
 }

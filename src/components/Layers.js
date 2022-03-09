@@ -8,7 +8,6 @@ export const Layers = ({ setId, layers, selected, setSelected }) => {
   function selectLayer(index) {
     if (context.textDom) {
       setSelected([index]);
-      context.textDom.current.children[index].focus();
     }
   }
   return (
@@ -28,7 +27,13 @@ export const Layers = ({ setId, layers, selected, setSelected }) => {
         <button className="layer" onClick={show}>
           Add Layer
         </button>
-        {OpenTools ? <Tools setId={setId} /> : null}
+        {OpenTools ? (
+          <Tools
+            setId={setId}
+            setSelected={setSelected}
+            index={layers.length}
+          />
+        ) : null}
       </div>
     </div>
   );

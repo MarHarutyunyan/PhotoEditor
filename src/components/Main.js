@@ -23,6 +23,7 @@ export default function Main() {
         <Canvas
           layers={layers}
           setSelected={setSelected}
+          selected={selected}
           textDom={textDom}
         />
         <Properties id={id} selected={selected} />

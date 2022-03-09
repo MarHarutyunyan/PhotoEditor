@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../Main.css";
 import { NumberContext } from "./Main";
-export const Canvas = ({ layers, setSelected, textDom }) => {
+export const Canvas = ({ layers, setSelected, selected, textDom }) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.data);
   const selectLayer = (index) => {
@@ -21,6 +21,11 @@ export const Canvas = ({ layers, setSelected, textDom }) => {
       fontFamily: layer.fontFamily,
     };
   };
+  useEffect(() => {
+    if (textDom.current.children.length) {
+      textDom.current.children[selected[0]].focus();
+    }
+  }, [selected]);
   return (
     <div className="canvaContainer" ref={textDom}>
       {data.layers.map((layer, index) =>
