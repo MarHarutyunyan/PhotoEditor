@@ -37,7 +37,7 @@ const defaultState = {
         height: 50,
         color: "black",
         lineHeight: 0,
-        letterSpacing: 0,
+        letterSpacing: 8,
         shadow: "",
       },
       SvgMeta: {
