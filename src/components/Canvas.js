@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../Main.css";
-import { NumberContext } from "./Main";
 export const Canvas = ({ layers, setSelected, selected, textDom }) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.data);

@@ -12,7 +12,6 @@ export default function Main() {
   const [selected, setSelected] = useState([]);
   const [textDom, setTextDom] = useState(useRef(null));
   return (
-    <NumberContext.Provider value={{ textDom, setTextDom }}>
       <div className="container">
         <Layers
           setId={setId}
@@ -26,8 +25,7 @@ export default function Main() {
           selected={selected}
           textDom={textDom}
         />
-        <Properties id={id} selected={selected} />
+        <Properties id={id} selected={selected} layers={layers} />
       </div>
-    </NumberContext.Provider>
   );
 }

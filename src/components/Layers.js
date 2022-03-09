@@ -1,14 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Tools } from "./Tools";
-import { NumberContext } from "./Main";
 export const Layers = ({ setId, layers, selected, setSelected }) => {
   const [OpenTools, setOpenTools] = useState(false);
   const show = () => setOpenTools(true);
-  const context = useContext(NumberContext);
   function selectLayer(index) {
-    if (context.textDom) {
       setSelected([index]);
-    }
   }
   return (
     <div className="layersContainer">

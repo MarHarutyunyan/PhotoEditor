@@ -7,7 +7,7 @@ import { AddingHighlightColor } from "./AddingHighlightColor";
 import { AddingLetterSpacing } from "./AddingLetterSpaceing";
 import { AddingLineHeights } from "./AddingLineHeight";
 import { AddingSize } from "./AddingSize";
-export const TxtFeatures = ({selected}) => {
+export const TxtFeatures = ({selected,layers}) => {
   const features = useSelector((state) => state.data.properties.text);
   const txtFeatures = Object.keys(features);
   const [OpenFeature, setOpenFeature] = useState(false);
@@ -27,7 +27,7 @@ export const TxtFeatures = ({selected}) => {
           >
             {Feature}
             {selectedFeature === FONT && OpenFeature ? (
-              <AddingFonts selected={selected} />
+              <AddingFonts selected={selected} layers={layers} />
             ) : selectedFeature === SIZE && OpenFeature ? (
               <AddingSize selected={selected} />
             ) : selectedFeature === COLOR && OpenFeature ? (
