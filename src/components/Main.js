@@ -1,20 +1,21 @@
-import React, { useState, useRef } from "react";
-import { useSelector } from "react-redux";
-import { Canvas } from "./Canvas";
-import { Layers } from "./Layers";
-import "../Main.css";
-import { Properties } from "./Properties";
-import { DEFAULTLAYER } from "./Constants";
-export const NumberContext = React.createContext();
+import React, { useState, useRef } from "react"
+import { useSelector } from "react-redux"
+import { Canvas } from "./Canvas/Canvas"
+import { Layers } from "./Layers/Layers"
+import "../Main.css"
+import { Properties } from "./Properties"
+import { SHAPE_LAYER } from "./Constants"
+export const NumberContext = React.createContext()
 export default function Main() {
-  const [id, setId] = useState(DEFAULTLAYER);
-  const data = useSelector((state) => state.data);
-  const uiData = useSelector((state) => state.ui);
-  const layers = data.layers;
-  const selected = uiData.selected;
-  const propertyVisibility = uiData.propertyVisibility;
-  const toolsVisibility = uiData.toolsVisibility;
-  const canvaNodes = useRef(null);
+  const [id, setId] = useState(SHAPE_LAYER)
+  const data = useSelector((state) => state.data)
+  const uiData = useSelector((state) => state.ui)
+  const layers = data.layers
+  const selected = uiData.selected
+  const propertyVisibility = uiData.propertyVisibility
+  const toolsVisibility = uiData.toolsVisibility
+
+  const canvasNodes = useRef(null)
   return (
     <div className="container">
       <Layers
@@ -26,7 +27,7 @@ export default function Main() {
       <Canvas
         layers={layers}
         selected={selected}
-        canvaNodes={canvaNodes}
+        canvasNodes={canvasNodes}
         setId={setId}
       />
       <Properties
@@ -36,5 +37,5 @@ export default function Main() {
         propertyVisibility={propertyVisibility}
       />
     </div>
-  );
+  )
 }

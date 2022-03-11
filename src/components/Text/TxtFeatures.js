@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import {
   COLOR,
   FONT,
@@ -7,26 +7,26 @@ import {
   LETTERSPACING,
   LINEHEIGHT,
   SIZE,
-} from "../Constants";
-import { AddingColor } from "../AddingColor";
-import { AddingFonts } from "./AddingFonts";
-import { AddingHighlightColor } from "../AddingHighlightColor";
-import { AddingLetterSpacing } from "./AddingLetterSpaceing";
-import { AddingLineHeight } from "./AddingLineHeight";
-import { AddingSize } from "./AddingSize";
+} from "../Constants"
+import { AddingColor } from "../AddingColor"
+import { AddingFonts } from "./AddingFonts"
+import { AddingHighlightColor } from "../AddingHighlightColor"
+import { AddingLetterSpacing } from "./AddingLetterSpaceing"
+import { AddingLineHeight } from "./AddingLineHeight"
+import { AddingSize } from "./AddingSize"
 
 export const TxtFeatures = ({ selected, layers }) => {
-  const features = useSelector((state) => state.data.properties.text);
-  const txtFeatures = Object.keys(features);
-  const [OpenFeature, setOpenFeature] = useState(false);
-  const [selectedFeature, setFeature] = useState("");
-  const dispatch = useDispatch();
+  const features = useSelector((state) => state.data.properties.text)
+  const txtFeatures = Object.keys(features)
+  const [OpenFeature, setOpenFeature] = useState(false)
+  const [selectedFeature, setFeature] = useState("")
+  const dispatch = useDispatch()
 
   const openFeaturesProperties = (Feature) => {
-    setFeature(Feature);
-    setOpenFeature(true);
-    dispatch({ type: "SET_PROPERTY_VISIBILITY", value: true });
-  };
+    setFeature(Feature)
+    setOpenFeature(true)
+    dispatch({ type: "SET_PROPERTY_VISIBILITY", value: true })
+  }
   return (
     <div>
       <ul>
@@ -54,5 +54,5 @@ export const TxtFeatures = ({ selected, layers }) => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}

@@ -1,17 +1,18 @@
-import React, { useState, useRef } from "react";
-import { useDispatch } from "react-redux";
-import { Tools } from "./Tools";
+import React, { useState, useRef } from "react"
+import { useDispatch } from "react-redux"
+import { Tools } from "../Tools"
+import * as Styled from "./styled"
 export const Layers = ({ setId, layers, selected, toolsVisibility }) => {
-  const layersNode = useRef();
-  const dispatch = useDispatch();
+  const layersNode = useRef()
+  const dispatch = useDispatch()
   const show = () => {
-    dispatch({ type: "SET_TOOLS_VISIBILITY", value: true });
-  };
+    dispatch({ type: "SET_TOOLS_VISIBILITY", value: true })
+  }
   const selectLayer = (index) => {
-    dispatch({ type: "SET_SELECTED", value: [index] });
-    dispatch({ type: "SET_PROPERTY_VISIBILITY", value: true });
-    setId(layers[index].type);
-  };
+    dispatch({ type: "SET_SELECTED", value: [index] })
+    dispatch({ type: "SET_PROPERTY_VISIBILITY", value: true })
+    setId(layers[index].type)
+  }
 
   return (
     <div className="layersContainer">
@@ -27,11 +28,9 @@ export const Layers = ({ setId, layers, selected, toolsVisibility }) => {
             </li>
           ))}
         </ul>
-        <button className="layer" onClick={show}>
-          Add Layer
-        </button>
+        <Styled.LayerButton onClick={show}>Add Layer</Styled.LayerButton>
         {toolsVisibility ? <Tools setId={setId} index={layers.length} /> : null}
       </div>
     </div>
-  );
-};
+  )
+}

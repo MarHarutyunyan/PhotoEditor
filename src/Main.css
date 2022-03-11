@@ -22,32 +22,7 @@ body {
   height: 90vh;
   overflow-y: auto;
 }
-.canvasContainer {
-  width: 80%;
-  height: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.canvas > * {
-  position: absolute;
-}
-.canvas {
-  position: relative;
-  overflow: hidden;
-}
-.defaultLayer {
-  background-color: #fff;
-  width: 100%;
-  height: 100%;
-  position: fixed !important;
-}
-canvas {
-  width: 100%;
-  height: 100%;
-  border: 1px solid transparent;
-  background-color: #fff;
-}
+
 .layers {
   width: 100%;
   height: 100%;
@@ -92,13 +67,7 @@ canvas {
   border-radius: 30px;
   text-align: center;
 }
-button.layer {
-  width: 90%;
-  padding: 15px 0;
-  border-radius: 30px;
-  cursor: pointer;
-  border-color: transparent;
-}
+
 ul,
 li {
   list-style: none;

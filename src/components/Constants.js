@@ -1,11 +1,12 @@
-export const TEXT = "TEXT";
-export const IMG = "IMG";
-export const EFFECTS = "EFFECTS";
-export const VECTOR = "VECTOR";
-export const FONT = "Fonts";
-export const SIZE = "Size";
-export const COLOR = "Color";
-export const HIGHLIGHTCOLOR = "HighlightColor";
-export const LINEHEIGHT = "LineHeight";
-export const LETTERSPACING = "LetterSpacing";
-export const DEFAULTLAYER = "defaultLayer"
+export const EFFECTS = "EFFECTS"
+export const VECTOR = "VECTOR"
+export const FONT = "Fonts"
+export const SIZE = "Size"
+export const COLOR = "Color"
+export const HIGHLIGHTCOLOR = "HighlightColor"
+export const LINEHEIGHT = "LineHeight"
+export const LETTERSPACING = "LetterSpacing"
+
+export const SHAPE_LAYER = "shape"
+export const TEXT_LAYER = "TEXT_LAYER"
+export const IMG_LAYER = "IMG_LAYER"

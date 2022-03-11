@@ -1,22 +1,22 @@
-import React from "react";
-import "../Main.css";
-import { TxtFeatures } from "./Text/TxtFeatures";
-import { ImgFeatures } from "./ImgFeatures";
-import { IMG, DEFAULTLAYER, TEXT } from "./Constants";
-import { MainFeatures } from "./DefaultLayer/DefaultLayerFeatures";
+import React from "react"
+import "../Main.css"
+import { TxtFeatures } from "./Text/TxtFeatures"
+import { ImgFeatures } from "./ImgFeatures"
+import { IMG_LAYER, SHAPE_LAYER, TEXT_LAYER } from "./Constants"
+import { MainFeatures } from "./DefaultLayer/DefaultLayerFeatures"
 
 export const Properties = ({ id, selected, layers, propertyVisibility }) => {
   return (
     <div className="propertiesContainer">
       <div className="properties">
-        {id === DEFAULTLAYER && propertyVisibility && (
+        {id === SHAPE_LAYER && propertyVisibility && (
           <MainFeatures selected={selected} layers={layers} />
         )}
-        {id === TEXT && propertyVisibility && (
+        {id === TEXT_LAYER && propertyVisibility && (
           <TxtFeatures selected={selected} layers={layers} />
         )}
-        {/* {id === IMG && propertyVisibility && <ImgFeatures />} */}
+        {/* {id === IMG_LAYER && propertyVisibility && <ImgFeatures />} */}
       </div>
     </div>
-  );
-};
+  )
+}
