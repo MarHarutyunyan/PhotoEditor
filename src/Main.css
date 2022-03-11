@@ -35,7 +35,6 @@ body {
 .canvas {
   position: relative;
   overflow: hidden;
-
 }
 .defaultLayer {
   background-color: #fff;
@@ -75,12 +74,14 @@ canvas {
   width: 5px;
   cursor: pointer;
 }
+
 .layers ul::-webkit-scrollbar-thumb,
 .propertiesContainer::-webkit-scrollbar-thumb {
   background: #8f8e92;
   border-radius: 10px;
   cursor: pointer;
 }
+
 .layers li,
 .properties div li {
   margin: 0 5px 10px 5px;
@@ -89,6 +90,7 @@ canvas {
   color: #fff;
   cursor: pointer;
   border-radius: 30px;
+  text-align: center;
 }
 button.layer {
   width: 90%;
