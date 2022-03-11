@@ -20,4 +20,8 @@ export const getCanvasSize = createSelector(
   }
 )
 
+export const getSelectedLayerIndex = (state) => {
+  return getUi(state).selectedLayerIndex
+}
+
 export const getLayers = (state) => getData(state).layers
