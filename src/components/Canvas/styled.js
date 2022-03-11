@@ -7,6 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   border: 1px solid #fff;
+  overflow: hidden;
 `
 
 export const Canvas = styled.div`

@@ -4,20 +4,13 @@ import "../../Main.css"
 import * as Styled from "./styled"
 import { SHAPE_LAYER, TEXT_LAYER } from "../Constants"
 import ShapeComponent from "../ShapeComponent"
+import { getLayers, getCanvasZoom, getCanvasSize } from "../../store/selectors"
 
-const multiply = (num1) => (num2) => {
-  // TODO: add implementation for both cases, with % and with Pixels
-  return num2
-}
-
-export const Canvas = ({ layers, selected, canvasNodes, setId }) => {
+export const Canvas = ({ selected, setId }) => {
   const dispatch = useDispatch()
-  const data = useSelector((state) => state.data)
+  const layers = useSelector(getLayers)
 
-  const canvasZoom = useSelector((state) => state.ui.canvasZoom)
-  const _multiply = multiply(canvasZoom)
-
-  const { width, height } = useSelector((state) => state.data.cavasSize)
+  const { width, height } = useSelector(getCanvasSize)
 
   const selectLayer = (index) => {
     dispatch({ type: "SET_SELECTED", value: [index] })
@@ -28,20 +21,10 @@ export const Canvas = ({ layers, selected, canvasNodes, setId }) => {
     dispatch({ type: "CHANGE_TEXT", index, value })
   }
 
-  useEffect(() => {
-    if (canvasNodes.current.children.length) {
-      canvasNodes.current.children[selected[0]].focus()
-    }
-  }, [selected])
-
   return (
     <Styled.Container>
-      <Styled.Canvas
-        ref={canvasNodes}
-        width={_multiply(width)}
-        height={_multiply(height)}
-      >
-        {data.layers.map((layer, index) =>
+      <Styled.Canvas width={width} height={height}>
+        {layers.map((layer, index) =>
           layer.type === SHAPE_LAYER ? (
             <ShapeComponent
               onSelect={() => selectLayer(index)}

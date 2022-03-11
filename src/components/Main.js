@@ -5,7 +5,9 @@ import { Layers } from "./Layers/Layers"
 import "../Main.css"
 import { Properties } from "./Properties"
 import { SHAPE_LAYER } from "./Constants"
+
 export const NumberContext = React.createContext()
+
 export default function Main() {
   const [id, setId] = useState(SHAPE_LAYER)
   const data = useSelector((state) => state.data)
@@ -15,7 +17,6 @@ export default function Main() {
   const propertyVisibility = uiData.propertyVisibility
   const toolsVisibility = uiData.toolsVisibility
 
-  const canvasNodes = useRef(null)
   return (
     <div className="container">
       <Layers
@@ -24,12 +25,7 @@ export default function Main() {
         selected={selected}
         toolsVisibility={toolsVisibility}
       />
-      <Canvas
-        layers={layers}
-        selected={selected}
-        canvasNodes={canvasNodes}
-        setId={setId}
-      />
+      <Canvas selected={selected} setId={setId} />
       <Properties
         id={id}
         selected={selected}

@@ -7,8 +7,8 @@ import { addLayer, setLayerType } from "../functions/utils"
 const defaultState = {
   layers: [getCanvasFirstLayerData()],
   cavasSize: {
-    width: "1000px",
-    height: "500px",
+    width: 1000,
+    height: 500,
   },
   properties: {
     text: {
@@ -32,6 +32,7 @@ const defaultState = {
     },
   },
 }
+
 export const dataReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "ADD_LAYER": {
