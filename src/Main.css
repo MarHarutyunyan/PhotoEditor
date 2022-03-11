@@ -111,13 +111,7 @@ div.toolsContainer {
   border: transparent;
   padding: 5px;
 }
-textarea {
-  border-color: transparent;
-}
-textarea:focus {
-  outline-color: #8f8e92;
-  outline-width: 1px;
-}
+
 .selected {
   background-color: red !important;
 }

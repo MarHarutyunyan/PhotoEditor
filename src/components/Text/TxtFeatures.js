@@ -7,7 +7,7 @@ import {
   LETTERSPACING,
   LINEHEIGHT,
   SIZE,
-} from "../Constants"
+} from "../../Constants"
 import { AddingColor } from "../AddingColor"
 import { AddingFonts } from "./AddingFonts"
 import { AddingHighlightColor } from "../AddingHighlightColor"

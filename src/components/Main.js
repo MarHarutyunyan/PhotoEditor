@@ -4,7 +4,7 @@ import { Canvas } from "./Canvas/Canvas"
 import { Layers } from "./Layers/Layers"
 import "../Main.css"
 import { Properties } from "./Properties"
-import { SHAPE_LAYER } from "./Constants"
+import { SHAPE_LAYER } from "../Constants"
 
 export const NumberContext = React.createContext()
 

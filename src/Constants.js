@@ -7,6 +7,6 @@ export const HIGHLIGHTCOLOR = "HighlightColor"
 export const LINEHEIGHT = "LineHeight"
 export const LETTERSPACING = "LetterSpacing"
 
-export const SHAPE_LAYER = "shape"
+export const SHAPE_LAYER = "SHAPE_LAYER"
 export const TEXT_LAYER = "TEXT_LAYER"
 export const IMG_LAYER = "IMG_LAYER"

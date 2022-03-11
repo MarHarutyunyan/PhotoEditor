@@ -1,28 +1,30 @@
-import { IMG_LAYER, TEXT_LAYER, SHAPE_LAYER } from "../components/Constants"
+import { IMG_LAYER, TEXT_LAYER, SHAPE_LAYER } from "../Constants"
 
 const isEven = (num) => parseInt(num) % 2 === 0
 const getRandomSign = () => (isEven(Math.random() * 10) ? 1 : -1)
 
-const getTextMeta = (width = 0, height = 0) => ({
-  type: TEXT_LAYER,
-  width,
-  height,
-  coords: {
-    x: 300 + Math.random() * 10 * getRandomSign(),
-    y: 250 + Math.random() * 10 * getRandomSign(),
-  },
-  rotation: 0,
-  meta: {
-    text: "Click to edit",
-    fontFamily: "Sans-serif",
-    fontSize: 24,
-    highlightColor: "#ffffff",
-    color: "#000000",
-    lineHeight: 1,
-    letterSpacing: 0,
-    shadow: "",
-  },
-})
+const getTextMeta = (width = 0, height = 0) => {
+  return {
+    type: TEXT_LAYER,
+    width,
+    height,
+    coords: {
+      x: 300 + Math.random() * 10 * getRandomSign(),
+      y: 250 + Math.random() * 10 * getRandomSign(),
+    },
+    rotation: 0,
+    meta: {
+      text: "Click to edit",
+      fontFamily: "Sans-serif",
+      fontSize: 24,
+      highlightColor: "#ffffff",
+      color: "#000000",
+      lineHeight: 1,
+      letterSpacing: 0,
+      shadow: "",
+    },
+  }
+}
 
 const getImageMeta = (width = 0, height = 0) => ({
   type: IMG_LAYER,

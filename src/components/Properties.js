@@ -2,7 +2,7 @@ import React from "react"
 import "../Main.css"
 import { TxtFeatures } from "./Text/TxtFeatures"
 import { ImgFeatures } from "./ImgFeatures"
-import { IMG_LAYER, SHAPE_LAYER, TEXT_LAYER } from "./Constants"
+import { IMG_LAYER, SHAPE_LAYER, TEXT_LAYER } from "../Constants"
 import { MainFeatures } from "./DefaultLayer/DefaultLayerFeatures"
 
 export const Properties = ({ id, selected, layers, propertyVisibility }) => {

@@ -2,7 +2,6 @@ import {
   getDefaultLayerData,
   getCanvasFirstLayerData,
 } from "../functions/layers"
-import { addLayer, setLayerType } from "../functions/utils"
 
 const defaultState = {
   layers: [getCanvasFirstLayerData()],
@@ -36,10 +35,9 @@ const defaultState = {
 export const dataReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "ADD_LAYER": {
-      addLayer(state.layers, getDefaultLayerData(action.value))
-      setLayerType(state.layers, action.id)
       return {
         ...state,
+        layers: [...state.layers, getDefaultLayerData(action.value)],
       }
     }
     case "CHANGE_HEIGHT": {

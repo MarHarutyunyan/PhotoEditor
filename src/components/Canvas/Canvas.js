@@ -2,9 +2,10 @@ import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import "../../Main.css"
 import * as Styled from "./styled"
-import { SHAPE_LAYER, TEXT_LAYER } from "../Constants"
+import { SHAPE_LAYER, TEXT_LAYER } from "../../Constants"
 import ShapeComponent from "../ShapeComponent"
 import { getLayers, getCanvasZoom, getCanvasSize } from "../../store/selectors"
+import TextComponent from "../TextComponent"
 
 export const Canvas = ({ selected, setId }) => {
   const dispatch = useDispatch()
@@ -31,15 +32,13 @@ export const Canvas = ({ selected, setId }) => {
               key={index}
             ></ShapeComponent>
           ) : layer.type === TEXT_LAYER ? (
-            <textarea
+            <TextComponent
               key={index}
-              type="text"
-              placeholder="Edit Text"
-              onChange={(event) => setText(index, event.target.value)}
-              onClick={() => selectLayer(index)}
+              onSelect={() => selectLayer(index)}
+              onChange={(value) => setText(index, value)}
             />
           ) : (
-            <div key={index}>Not Text</div>
+            <div key={index}>Undefined component</div>
           )
         )}
       </Styled.Canvas>

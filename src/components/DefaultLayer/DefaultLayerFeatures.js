@@ -8,7 +8,7 @@ import {
   LETTERSPACING,
   LINEHEIGHT,
   SIZE,
-} from "../Constants"
+} from "../../Constants"
 import { ChangeDefaultHeight } from "./ChangeDefaultHeight"
 import { ChangeDefaultWidth } from "./ChangeDefaultWidth"
 
