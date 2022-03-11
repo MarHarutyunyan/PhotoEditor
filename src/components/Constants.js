@@ -8,3 +8,4 @@ export const COLOR = "Color";
 export const HIGHLIGHTCOLOR = "HighlightColor";
 export const LINEHEIGHT = "LineHeight";
 export const LETTERSPACING = "LetterSpacing";
+export const DEFAULTLAYER = "defaultLayer"

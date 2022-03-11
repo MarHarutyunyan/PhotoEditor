@@ -15,7 +15,7 @@ export const AddingLineHeight = ({ selected, layers }) => {
       type: "CHANGE_LINE_HEIGHT",
       lineHeight: Math.max(
         0,
-        layers[selected[0]].meta.TxtMeta.lineHeight + num
+        layers[selected[0]].meta.lineHeight + num
       ),
       selected,
     });
@@ -24,14 +24,14 @@ export const AddingLineHeight = ({ selected, layers }) => {
   return (
     <div className="textLineProp">
       {/* <div className="slidecontainer">
-                <input type="range" min="1" max="100" value={layers[selected[0]].meta.TxtMeta.letterSpacing} /> {layers[selected[0]].meta.TxtMeta.letterSpacing}
+                <input type="range" min="1" max="100" value={layers[selected[0]].meta.letterSpacing} /> {layers[selected[0]].meta.letterSpacing}
             </div> */}
       <button className="leftMinusButton" onClick={subtracting}>
         -
       </button>
       <input
         type="number"
-        value={layers[selected[0]].meta.TxtMeta.lineHeight}
+        value={layers[selected[0]].meta.lineHeight}
         onChange={changeCountBy}
       />
       <button className="rightPlusButton" onClick={adding}>

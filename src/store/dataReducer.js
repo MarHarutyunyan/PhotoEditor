@@ -1,15 +1,24 @@
+import { IMG, TEXT, DEFAULTLAYER } from "../components/Constants";
 import { addLayer, setLayerType } from "../functions/utils";
-const defaultState = {
-  layers: [],
-  layer: {
-    type: "",
-    coords: {
-      x: 300,
-      y: 250,
-    },
-    rotation: 0,
-    meta: {
-      ImgMeta: {
+
+const getShapeLayerMetaData = (type, color, width, height) => {
+  switch (type) {
+    case TEXT: {
+      return {
+        text: "Click to edit",
+        fontFamily: "Sans-serif",
+        fontSize: 24,
+        highlightColor: "#ffffff",
+        width: 250,
+        height: 50,
+        color: "#000000",
+        lineHeight: 1,
+        letterSpacing: 0,
+        shadow: "",
+      };
+    }
+    case IMG: {
+      return {
         width: 0,
         height: 0,
         OrgWidth: 0,
@@ -27,28 +36,31 @@ const defaultState = {
           saturation: 0,
           warmth: 0,
         },
-      },
-      TxtMeta: {
-        text: "Click to edit",
-        fontFamily: "Sans-serif",
-        fontSize: 24,
-        highlightColor: "#ffffff",
-        width: 250,
-        height: 50,
-        color: "#000000",
-        lineHeight: 1,
-        letterSpacing: 0,
-        shadow: "",
-      },
-      SvgMeta: {
-        data: "data",
-        width: 0,
-        height: 0,
-        color: [],
-        type: [],
-      },
+      };
+    }
+    case DEFAULTLAYER: {
+      return {
+        width: width,
+        height: height,
+        highlightColor: color,
+      };
+    }
+  }
+};
+const getShapeLayerData = (type, color, width, height) => {
+  return {
+    type: type,
+    coords: {
+      x: 300,
+      y: 250,
     },
-  },
+    rotation: 0,
+    meta: getShapeLayerMetaData(type, color, width, height),
+  };
+};
+
+const defaultState = {
+  layers: [getShapeLayerData("defaultLayer", "#ffffff", 650, 650)],
   properties: {
     text: {
       Fonts: [
@@ -74,9 +86,24 @@ const defaultState = {
 export const dataReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "ADD_LAYER": {
-      const CopyLayer = JSON.parse(JSON.stringify(state.layer));
-      addLayer(state.layers, CopyLayer);
+      addLayer(state.layers, getShapeLayerData(action.id));
       setLayerType(state.layers, action.id);
+      return {
+        ...state,
+      };
+    }
+    case "CHANGE_HEIGHT": {
+      const height = action.height;
+      const selected = action.selected[0];
+      state.layers[selected].meta.height = height;
+      return {
+        ...state,
+      };
+    }
+    case "CHANGE_WIDTH": {
+      const width = action.width;
+      const selected = action.selected[0];
+      state.layers[selected].meta.width = width;
       return {
         ...state,
       };
@@ -84,7 +111,7 @@ export const dataReducer = (state = defaultState, action) => {
     case "CHANGE_TEXT": {
       const value = action.value;
       const index = action.index;
-      state.layers[index].meta.TxtMeta.text = value;
+      state.layers[index].meta.text = value;
       return {
         ...state,
       };
@@ -92,7 +119,7 @@ export const dataReducer = (state = defaultState, action) => {
     case "CHANGE_FONT": {
       const font = action.font;
       const selected = action.selected[0];
-      state.layers[selected].meta.TxtMeta.fontFamily = font;
+      state.layers[selected].meta.fontFamily = font;
       return {
         ...state,
       };
@@ -100,7 +127,7 @@ export const dataReducer = (state = defaultState, action) => {
     case "CHANGE_COLOR": {
       const color = action.color;
       const selected = action.selected[0];
-      state.layers[selected].meta.TxtMeta.color = color;
+      state.layers[selected].meta.color = color;
       return {
         ...state,
       };
@@ -108,7 +135,7 @@ export const dataReducer = (state = defaultState, action) => {
     case "CHANGE_HIGHLIGHT_COLOR": {
       const highlightColor = action.highlightColor;
       const selected = action.selected[0];
-      state.layers[selected].meta.TxtMeta.highlightColor = highlightColor;
+      state.layers[selected].meta.highlightColor = highlightColor;
       return {
         ...state,
       };
@@ -116,7 +143,7 @@ export const dataReducer = (state = defaultState, action) => {
     case "CHANGE_FONT_SIZE": {
       const fontSize = action.fontSize;
       const selected = action.selected[0];
-      state.layers[selected].meta.TxtMeta.fontSize = fontSize;
+      state.layers[selected].meta.fontSize = fontSize;
       return {
         ...state,
       };
@@ -124,7 +151,7 @@ export const dataReducer = (state = defaultState, action) => {
     case "CHANGE_LETTER_SPACING": {
       const letterSpacing = action.letterSpacing;
       const selected = action.selected[0];
-      state.layers[selected].meta.TxtMeta.letterSpacing = letterSpacing;
+      state.layers[selected].meta.letterSpacing = letterSpacing;
       return {
         ...state,
       };
@@ -132,14 +159,13 @@ export const dataReducer = (state = defaultState, action) => {
     case "CHANGE_LINE_HEIGHT": {
       const lineHeight = action.lineHeight;
       const selected = action.selected[0];
-      state.layers[selected].meta.TxtMeta.lineHeight = lineHeight;
+      state.layers[selected].meta.lineHeight = lineHeight;
       return {
         ...state,
       };
     }
-    
+
     default:
       return state;
   }
 };
-

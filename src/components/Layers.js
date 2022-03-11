@@ -1,18 +1,21 @@
-import React, { useState, useContext,useEffect } from "react";
+import React, { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
 import { Tools } from "./Tools";
-export const Layers = ({ setId, layers, selected, setSelected }) => {
-  const [OpenTools, setOpenTools] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+export const Layers = ({ setId, layers, selected, toolsVisibility }) => {
+  const layersNode = useRef();
+  const dispatch = useDispatch();
   const show = () => {
-    setOpenTools(true);
-    setIsOpen(true);
+    dispatch({ type: "SET_TOOLS_VISIBILITY", value: true });
   };
-  function selectLayer(index) {
-    setSelected([index]);
-  }
+  const selectLayer = (index) => {
+    dispatch({ type: "SET_SELECTED", value: [index] });
+    dispatch({ type: "SET_PROPERTY_VISIBILITY", value: true });
+    setId(layers[index].type);
+  };
+
   return (
     <div className="layersContainer">
-      <div className="layers">
+      <div className="layers" ref={layersNode}>
         <ul>
           {layers.map((_, index) => (
             <li
@@ -27,15 +30,7 @@ export const Layers = ({ setId, layers, selected, setSelected }) => {
         <button className="layer" onClick={show}>
           Add Layer
         </button>
-        {OpenTools ? (
-          <Tools
-            setId={setId}
-            setSelected={setSelected}
-            index={layers.length}
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-          />
-        ) : null}
+        {toolsVisibility ? <Tools setId={setId} index={layers.length} /> : null}
       </div>
     </div>
   );

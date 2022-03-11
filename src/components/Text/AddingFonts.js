@@ -15,7 +15,7 @@ export const AddingFonts = ({ selected, layers }) => {
         {fonts.map((font, i) => (
           <li
             className={
-              layers[selected[0]].meta.TxtMeta.fontFamily.includes(font)
+              layers[selected[0]].meta.fontFamily.includes(font)
                 ? "selected"
                 : null
             }
