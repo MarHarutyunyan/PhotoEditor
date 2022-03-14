@@ -3,8 +3,12 @@ import { IMG_LAYER, TEXT_LAYER, SHAPE_LAYER } from "../Constants"
 const isEven = (num) => parseInt(num) % 2 === 0
 const getRandomSign = () => (isEven(Math.random() * 10) ? 1 : -1)
 
+const getLayerTitle = (name, template = "%s layer") =>
+  template.replace("%s", name)
+
 const getTextMeta = (width = 0, height = 0) => {
   return {
+    title: getLayerTitle("text"),
     type: TEXT_LAYER,
     width,
     height,
@@ -27,6 +31,7 @@ const getTextMeta = (width = 0, height = 0) => {
 }
 
 const getImageMeta = (width = 0, height = 0) => ({
+  title: getLayerTitle("image"),
   type: IMG_LAYER,
   width,
   height,
@@ -55,6 +60,7 @@ const getImageMeta = (width = 0, height = 0) => ({
 })
 
 const getShapeMeta = (width = 0, height = 0) => ({
+  title: getLayerTitle("shape"),
   type: SHAPE_LAYER,
   width,
   height,
