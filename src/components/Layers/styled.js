@@ -14,21 +14,22 @@ export const Layers = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+
   overflow: hidden;
   > ul {
-    width: 90%;
-    height: 90%;
     overflow-y: auto;
-    margin: 0 0 10px 0;
+    margin: 0;
+    padding: 0;
+    padding-inline-start: 0;
 
     li {
-      margin: 0 5px 10px 5px;
-      padding: 15px 0;
+      list-style-type: none;
+      margin: 10px 0;
+      padding: 8px 0;
       background-color: #2b2b2b;
       color: #fff;
       cursor: pointer;
-      border-radius: 30px;
+      border-radius: 8px;
       text-align: center;
     }
 
