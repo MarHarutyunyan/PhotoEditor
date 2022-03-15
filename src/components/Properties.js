@@ -1,7 +1,6 @@
 import React from "react"
 import "../Main.css"
 import { TxtFeatures } from "./Text/TxtFeatures"
-import { ImgFeatures } from "./ImgFeatures"
 import { IMG_LAYER, SHAPE_LAYER, TEXT_LAYER } from "../Constants"
 import { MainFeatures } from "./DefaultLayer/DefaultLayerFeatures"
 
@@ -15,7 +14,6 @@ export const Properties = ({ id, selected, layers, propertyVisibility }) => {
         {id === TEXT_LAYER && propertyVisibility && (
           <TxtFeatures selected={selected} layers={layers} />
         )}
-        {/* {id === IMG_LAYER && propertyVisibility && <ImgFeatures />} */}
       </div>
     </div>
   )
