@@ -5,3 +5,5 @@ export const PropertiesContainer = styled.div`
   height: 90vh;
   overflow-y: auto;
 `
+
+export const MultipleLayersSelected = styled.div

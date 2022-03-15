@@ -85,6 +85,9 @@ export const getDefaultLayerData = (type) => {
     case SHAPE_LAYER: {
       return getShapeMeta()
     }
+    default: {
+      return null
+    }
   }
 }
 

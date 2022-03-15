@@ -1,7 +1,6 @@
 const uiState = {
   canvasZoom: 1,
   selected: [0],
-  propertyVisibility: true,
 }
 
 export const uiReducer = (state = uiState, action) => {

@@ -9,17 +9,13 @@ const ContainerMain = () => {
   const data = useSelector((state) => state.data)
   const uiData = useSelector((state) => state.ui)
   const layers = data.layers
-  const { selected, propertyVisibility } = uiData
+  const { selected } = uiData
 
   return (
     <Styled.Container>
       <Layers layers={layers} selected={selected} />
       <Canvas selected={selected} />
-      <Properties
-        selected={selected}
-        layers={layers}
-        propertyVisibility={propertyVisibility}
-      />
+      <Properties selected={selected} layers={layers} />
     </Styled.Container>
   )
 }
