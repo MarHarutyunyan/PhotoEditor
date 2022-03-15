@@ -70,7 +70,7 @@ const getShapeMeta = (width = 0, height = 0) => ({
   },
   rotation: 0,
   meta: {
-    backGroundColor: "#ffffff",
+    backgroundColor: "#ffffff",
   },
 })
 

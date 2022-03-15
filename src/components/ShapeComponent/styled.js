@@ -1,8 +1,9 @@
 import styled from "styled-components"
 
 export const Shape = styled.div`
-  background-color: ${(props) => (props.bgColor ? props.bgColor : "#fff")};
-  width: 100%;
-  height: 100%;
-  position: absolute;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  background: ${(props) => props.backgroundColor};
+  top: ${(props) => props.y};
+  left: ${(props) => props.x};
 `
