@@ -1,12 +1,13 @@
 import { createSelector } from "reselect"
-import { scaleHtmlElementSize } from "../../functions/scaleHtmlElementSize"
+import { convertPercentToPixel } from "./utils"
 
 export const getData = (state) => state.data
-
 export const getUi = (state) => state.ui
-export const getCanvasZoom = (state) => getUi(state).canvasZoom
 
 const _getCanvasOriginalSize = (state) => getData(state).cavasSize
+const _getLayersPure = (state) => getData(state).layers
+
+export const getCanvasZoom = (state) => getUi(state).canvasZoom
 
 export const getCanvasSize = createSelector(
   _getCanvasOriginalSize,
@@ -14,8 +15,8 @@ export const getCanvasSize = createSelector(
   (cavasSize, zoom) => {
     const { width, height } = cavasSize
     return {
-      width: scaleHtmlElementSize(width, zoom),
-      height: scaleHtmlElementSize(height, zoom),
+      width: width * zoom,
+      height: height * zoom,
     }
   }
 )
@@ -24,4 +25,8 @@ export const getSelectedLayerIndex = (state) => {
   return getUi(state).selectedLayerIndex
 }
 
-export const getLayers = (state) => getData(state).layers
+export const getLayers = createSelector(
+  getCanvasSize,
+  _getLayersPure,
+  (cavasSize, layers) => layers.map(convertPercentToPixel(cavasSize))
+)

@@ -3,6 +3,9 @@ import { IMG_LAYER, TEXT_LAYER, SHAPE_LAYER } from "../config/Constants"
 const isEven = (num) => parseInt(num) % 2 === 0
 const getRandomSign = () => (isEven(Math.random() * 10) ? 1 : -1)
 
+const getRandomCoord = (num) =>
+  parseInt(num + Math.random() * 10 * getRandomSign())
+
 const getLayerTitle = (name, template = "%s layer") =>
   template.replace("%s", name)
 
@@ -13,8 +16,8 @@ const getTextMeta = (width = 0, height = 0) => {
     width,
     height,
     coords: {
-      x: 300 + Math.random() * 10 * getRandomSign(),
-      y: 250 + Math.random() * 10 * getRandomSign(),
+      x: getRandomCoord(300),
+      y: getRandomCoord(250),
     },
     rotation: 0,
     meta: {
@@ -36,8 +39,8 @@ const getImageMeta = (width = 0, height = 0) => ({
   width,
   height,
   coords: {
-    x: 300,
-    y: 250,
+    x: getRandomCoord(300),
+    y: getRandomCoord(250),
   },
   rotation: 0,
   meta: {
@@ -65,8 +68,8 @@ const getShapeMeta = (width = 0, height = 0) => ({
   width,
   height,
   coords: {
-    x: width === "100%" ? 0 : 300,
-    y: height === "100%" ? 0 : 250,
+    x: width === "100%" ? 0 : getRandomCoord(300),
+    y: height === "100%" ? 0 : getRandomCoord(250),
   },
   rotation: 0,
   meta: {
@@ -77,13 +80,13 @@ const getShapeMeta = (width = 0, height = 0) => ({
 export const getDefaultLayerData = (type) => {
   switch (type) {
     case TEXT_LAYER: {
-      return getTextMeta()
+      return getTextMeta(200, 100)
     }
     case IMG_LAYER: {
-      return getImageMeta()
+      return getImageMeta(100, 100)
     }
     case SHAPE_LAYER: {
-      return getShapeMeta()
+      return getShapeMeta(50, 50)
     }
     default: {
       return null

@@ -20,20 +20,17 @@ export const Canvas = () => {
     <Styled.Container>
       <Styled.Canvas width={width} height={height}>
         {layers.map((layer, index) => (
-          <React.Fragment key={index}>
-            {layer.type === SHAPE_LAYER && (
-              <ShapeComponent
-                index={index}
-                onSelect={() => selectLayer(index)}
-              />
-            )}
-            {layer.type === TEXT_LAYER && (
-              <TextComponent
-                index={index}
-                onSelect={() => selectLayer(index)}
-              />
-            )}
-          </React.Fragment>
+          <Styled.CanvasItemWrapper
+            key={index}
+            width={layer.width}
+            height={layer.height}
+            x={layer.coords.x}
+            y={layer.coords.y}
+            onSelect={() => selectLayer(index)}
+          >
+            {layer.type === SHAPE_LAYER && <ShapeComponent index={index} />}
+            {layer.type === TEXT_LAYER && <TextComponent index={index} />}
+          </Styled.CanvasItemWrapper>
         ))}
       </Styled.Canvas>
     </Styled.Container>

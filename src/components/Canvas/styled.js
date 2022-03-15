@@ -14,8 +14,15 @@ export const Canvas = styled.div`
   > * {
     position: absolute;
   }
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
   position: relative;
   overflow: hidden;
+`
+
+export const CanvasItemWrapper = styled.div`
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
+  top: ${(props) => props.y}px;
+  left: ${(props) => props.x}px;
 `

@@ -17,9 +17,9 @@ const ShapeComponent = ({ onSelect, index }) => {
       onClick={onSelect}
       width={layer.width}
       height={layer.height}
-      backgroundColor={layer.meta.backgroundColor}
       x={layer.coords.x}
       y={layer.coords.y}
+      backgroundColor={layer.meta.backgroundColor}
     />
   )
 }
