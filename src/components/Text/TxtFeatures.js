@@ -7,10 +7,10 @@ import {
   LETTERSPACING,
   LINEHEIGHT,
   SIZE,
-} from "../../Constants"
-import { AddingColor } from "../AddingColor"
+} from "../../config/Constants"
+import { AddingColor } from "./AddingColor"
 import { AddingFonts } from "./AddingFonts"
-import { AddingHighlightColor } from "../AddingHighlightColor"
+import { AddingHighlightColor } from "./AddingHighlightColor"
 import { AddingLetterSpacing } from "./AddingLetterSpaceing"
 import { AddingLineHeight } from "./AddingLineHeight"
 import { AddingSize } from "./AddingSize"

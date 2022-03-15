@@ -1,9 +1,9 @@
 import React from "react"
-import "../Main.css"
 import { useDispatch } from "react-redux"
-import { EFFECTS, IMG_LAYER, TEXT_LAYER, VECTOR } from "../Constants"
+import { EFFECTS, IMG_LAYER, TEXT_LAYER, VECTOR } from "../../config/Constants"
+import * as Styled from "./styled"
 
-export const Tools = ({ index }) => {
+export const AddLayerMenu = ({ index }) => {
   const dispatch = useDispatch()
 
   const AddToData = (layerType) => {
@@ -11,11 +11,11 @@ export const Tools = ({ index }) => {
   }
 
   return (
-    <div className="toolsContainer">
+    <Styled.ToolsContainer>
       <div onClick={() => AddToData(IMG_LAYER)}>Img</div>
       <div onClick={() => AddToData(TEXT_LAYER)}>Text</div>
       <div onClick={() => AddToData(EFFECTS)}>Effects</div>
       <div onClick={() => AddToData(VECTOR)}>Vectors</div>
-    </div>
+    </Styled.ToolsContainer>
   )
 }

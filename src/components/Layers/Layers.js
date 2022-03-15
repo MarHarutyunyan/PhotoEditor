@@ -1,16 +1,14 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import { useDispatch } from "react-redux"
-import { Tools } from "../Tools"
+import { AddLayerMenu } from "../AddLayerMenu"
 import * as Styled from "./styled"
 
-export const Layers = ({ layers, selected, toolsVisibility }) => {
-  const layersNode = useRef()
-
+export const Layers = ({ layers, selected }) => {
   const dispatch = useDispatch()
 
-  const show = () => {
-    dispatch({ type: "SET_TOOLS_VISIBILITY", value: true })
-  }
+  const [menuVisible, setMenuVisibility] = useState(false)
+
+  const toggleMenu = () => setMenuVisibility((prevState) => !prevState)
 
   const selectLayer = (index) => {
     dispatch({ type: "SET_SELECTED", value: [index] })
@@ -18,8 +16,8 @@ export const Layers = ({ layers, selected, toolsVisibility }) => {
   }
 
   return (
-    <div className="layersContainer">
-      <div className="layers" ref={layersNode}>
+    <Styled.LayersContainer>
+      <Styled.Layers>
         <ul>
           {layers.map((_, index) => (
             <li
@@ -31,9 +29,11 @@ export const Layers = ({ layers, selected, toolsVisibility }) => {
             </li>
           ))}
         </ul>
-        <Styled.LayerButton onClick={show}>Add Layer</Styled.LayerButton>
-        {toolsVisibility ? <Tools index={layers.length} /> : null}
-      </div>
-    </div>
+        <Styled.LayerButton onClick={toggleMenu}>
+          Add Layer
+          {menuVisible ? <AddLayerMenu index={layers.length} /> : null}
+        </Styled.LayerButton>
+      </Styled.Layers>
+    </Styled.LayersContainer>
   )
 }

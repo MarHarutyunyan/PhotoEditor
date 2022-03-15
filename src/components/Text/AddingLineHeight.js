@@ -1,25 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Counting } from "../../functions/Counting";
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 
 export const AddingLineHeight = ({ selected, layers }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const adding = () => {
-    changeCountBy(1);
-  };
+    changeCountBy(1)
+  }
   const subtracting = () => {
-    changeCountBy(-1);
-  };
+    changeCountBy(-1)
+  }
   const changeCountBy = (num) => {
     dispatch({
       type: "CHANGE_LINE_HEIGHT",
-      lineHeight: Math.max(
-        0,
-        layers[selected[0]].meta.lineHeight + num
-      ),
+      lineHeight: Math.max(0, layers[selected[0]].meta.lineHeight + num),
       selected,
-    });
-  };
+    })
+  }
 
   return (
     <div className="textLineProp">
@@ -38,5 +34,5 @@ export const AddingLineHeight = ({ selected, layers }) => {
         +
       </button>
     </div>
-  );
-};
+  )
+}

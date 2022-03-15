@@ -1,4 +1,4 @@
-import { IMG_LAYER, TEXT_LAYER, SHAPE_LAYER } from "../Constants"
+import { IMG_LAYER, TEXT_LAYER, SHAPE_LAYER } from "../config/Constants"
 
 const isEven = (num) => parseInt(num) % 2 === 0
 const getRandomSign = () => (isEven(Math.random() * 10) ? 1 : -1)
