@@ -13,7 +13,6 @@ const changeSelectedLayer =
       const lastLayerIndex = layers.length - 1
 
       dispatch({ type: "SET_SELECTED", value: [lastLayerIndex] })
-      dispatch({ type: "SET_PROPERTY_VISIBILITY", value: true })
     }
 
     return result

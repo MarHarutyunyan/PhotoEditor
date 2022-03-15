@@ -14,7 +14,6 @@ export const Canvas = ({ selected }) => {
 
   const selectLayer = (index) => {
     dispatch({ type: "SET_SELECTED", value: [index] })
-    dispatch({ type: "SET_PROPERTY_VISIBILITY", value: true })
   }
 
   return (

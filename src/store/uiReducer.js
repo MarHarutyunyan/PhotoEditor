@@ -6,12 +6,6 @@ const uiState = {
 
 export const uiReducer = (state = uiState, action) => {
   switch (action.type) {
-    case "SET_PROPERTY_VISIBILITY": {
-      return {
-        ...state,
-        visibility: action.value,
-      }
-    }
     case "SET_SELECTED": {
       return {
         ...state,

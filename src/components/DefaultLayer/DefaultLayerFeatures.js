@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { AddingHighlightColor } from "../Text/AddingHighlightColor"
 import { ChangeDefaultHeight } from "./ChangeDefaultHeight"
 import { ChangeDefaultWidth } from "./ChangeDefaultWidth"
@@ -9,12 +9,10 @@ export const MainFeatures = ({ selected, layers }) => {
   const mainFeatures = Object.keys(features)
   const [OpenFeature, setOpenFeature] = useState(false)
   const [selectedFeature, setFeature] = useState("")
-  const dispatch = useDispatch()
 
   const openFeaturesProperties = (Feature) => {
     setFeature(Feature)
     setOpenFeature(true)
-    dispatch({ type: "SET_PROPERTY_VISIBILITY", value: true })
   }
 
   return (

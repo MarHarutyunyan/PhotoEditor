@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import {
   COLOR,
   FONT,
@@ -20,39 +20,36 @@ export const TxtFeatures = ({ selected, layers }) => {
   const txtFeatures = Object.keys(features)
   const [OpenFeature, setOpenFeature] = useState(false)
   const [selectedFeature, setFeature] = useState("")
-  const dispatch = useDispatch()
 
   const openFeaturesProperties = (Feature) => {
     setFeature(Feature)
     setOpenFeature(true)
-    dispatch({ type: "SET_PROPERTY_VISIBILITY", value: true })
   }
+
   return (
-    <div>
-      <ul>
-        {txtFeatures.map((Feature, i) => (
-          <li
-            onClick={() => openFeaturesProperties(Feature)}
-            key={i}
-            className={selectedFeature === Feature ? null : "hiddenChild"}
-          >
-            {Feature}
-            {selectedFeature === FONT && OpenFeature ? (
-              <AddingFonts selected={selected} layers={layers} />
-            ) : selectedFeature === SIZE && OpenFeature ? (
-              <AddingSize selected={selected} layers={layers} />
-            ) : selectedFeature === COLOR && OpenFeature ? (
-              <AddingColor selected={selected} layers={layers} />
-            ) : selectedFeature === HIGHLIGHTCOLOR && OpenFeature ? (
-              <AddingHighlightColor selected={selected} layers={layers} />
-            ) : selectedFeature === LINEHEIGHT && OpenFeature ? (
-              <AddingLineHeight selected={selected} layers={layers} />
-            ) : selectedFeature === LETTERSPACING && OpenFeature ? (
-              <AddingLetterSpacing selected={selected} layers={layers} />
-            ) : null}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {txtFeatures.map((Feature, i) => (
+        <li
+          onClick={() => openFeaturesProperties(Feature)}
+          key={i}
+          className={selectedFeature === Feature ? null : "hiddenChild"}
+        >
+          {Feature}
+          {selectedFeature === FONT && OpenFeature ? (
+            <AddingFonts selected={selected} layers={layers} />
+          ) : selectedFeature === SIZE && OpenFeature ? (
+            <AddingSize selected={selected} layers={layers} />
+          ) : selectedFeature === COLOR && OpenFeature ? (
+            <AddingColor selected={selected} layers={layers} />
+          ) : selectedFeature === HIGHLIGHTCOLOR && OpenFeature ? (
+            <AddingHighlightColor selected={selected} layers={layers} />
+          ) : selectedFeature === LINEHEIGHT && OpenFeature ? (
+            <AddingLineHeight selected={selected} layers={layers} />
+          ) : selectedFeature === LETTERSPACING && OpenFeature ? (
+            <AddingLetterSpacing selected={selected} layers={layers} />
+          ) : null}
+        </li>
+      ))}
+    </ul>
   )
 }
