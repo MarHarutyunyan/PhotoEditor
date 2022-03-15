@@ -1,6 +1,6 @@
 const uiState = {
   canvasZoom: 1,
-  selected: [0],
+  selectedLayerIndex: [0],
 }
 
 export const uiReducer = (state = uiState, action) => {
@@ -8,7 +8,7 @@ export const uiReducer = (state = uiState, action) => {
     case "SET_SELECTED": {
       return {
         ...state,
-        selected: action.value,
+        selectedLayerIndex: action.value,
       }
     }
     default:

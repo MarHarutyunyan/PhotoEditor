@@ -1,3 +1,5 @@
 import changeSelectedLayer from "./changeSelectedLayer"
 
-export default [changeSelectedLayer]
+const middlewares = [changeSelectedLayer]
+
+export default middlewares

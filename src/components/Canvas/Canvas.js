@@ -6,7 +6,7 @@ import { getLayers, getCanvasSize } from "../../store/selectors"
 import TextComponent from "../TextComponent"
 import * as Styled from "./styled"
 
-export const Canvas = ({ selected }) => {
+export const Canvas = () => {
   const dispatch = useDispatch()
   const layers = useSelector(getLayers)
 
