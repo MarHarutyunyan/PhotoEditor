@@ -1,8 +1,8 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { SHAPE_LAYER, TEXT_LAYER } from "../../config/Constants"
 import ShapeComponent from "../ShapeComponent"
-import { getLayers, getCanvasZoom, getCanvasSize } from "../../store/selectors"
+import { getLayers, getCanvasSize } from "../../store/selectors"
 import TextComponent from "../TextComponent"
 import * as Styled from "./styled"
 
