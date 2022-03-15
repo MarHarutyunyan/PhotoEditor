@@ -3,12 +3,11 @@ import "../Main.css"
 import { useDispatch } from "react-redux"
 import { EFFECTS, IMG_LAYER, TEXT_LAYER, VECTOR } from "../Constants"
 
-export const Tools = ({ setId, index }) => {
+export const Tools = ({ index }) => {
   const dispatch = useDispatch()
 
   const AddToData = (layerType) => {
     dispatch({ type: "ADD_LAYER", value: layerType })
-    setId(layerType)
   }
 
   return (

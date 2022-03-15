@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { Tools } from "../Tools"
 import * as Styled from "./styled"
 
-export const Layers = ({ setId, layers, selected, toolsVisibility }) => {
+export const Layers = ({ layers, selected, toolsVisibility }) => {
   const layersNode = useRef()
 
   const dispatch = useDispatch()
@@ -15,7 +15,6 @@ export const Layers = ({ setId, layers, selected, toolsVisibility }) => {
   const selectLayer = (index) => {
     dispatch({ type: "SET_SELECTED", value: [index] })
     dispatch({ type: "SET_PROPERTY_VISIBILITY", value: true })
-    setId(layers[index].type)
   }
 
   return (
@@ -33,7 +32,7 @@ export const Layers = ({ setId, layers, selected, toolsVisibility }) => {
           ))}
         </ul>
         <Styled.LayerButton onClick={show}>Add Layer</Styled.LayerButton>
-        {toolsVisibility ? <Tools setId={setId} index={layers.length} /> : null}
+        {toolsVisibility ? <Tools index={layers.length} /> : null}
       </div>
     </div>
   )
