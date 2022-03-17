@@ -1,4 +1,5 @@
 import { getLayers } from "../selectors";
+import { selectedLayerAction } from "../../store/actions/selectedLayerAction";
 
 const actionsToReact = ["ADD_LAYER"];
 
@@ -11,7 +12,7 @@ const changeSelectedLayer =
       const layers = getLayers(getState());
       const lastLayerIndex = layers.length - 1;
 
-      dispatch({ type: "SET_SELECTED", value: [lastLayerIndex] });
+      dispatch(selectedLayerAction(lastLayerIndex));
     }
 
     return result;

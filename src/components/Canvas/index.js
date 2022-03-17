@@ -4,6 +4,7 @@ import { SHAPE_LAYER, TEXT_LAYER } from "../../config/Constants";
 import ShapeComponent from "../ShapeComponent";
 import { getLayers, getCanvasSize } from "../../store/selectors";
 import TextComponent from "../TextComponent";
+import { selectedLayerAction } from "../../store/actions/selectedLayerAction";
 import * as Styled from "./styled";
 
 export const Canvas = () => {
@@ -12,9 +13,8 @@ export const Canvas = () => {
 
   const { width, height } = useSelector(getCanvasSize);
 
-  const selectLayer = (index) => {
-    dispatch({ type: "SET_SELECTED", value: [index] });
-  };
+  const selectLayer = (index) => dispatch(selectedLayerAction(index));
+
 
   return (
     <Styled.Container>
