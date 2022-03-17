@@ -1,7 +1,9 @@
 import {
   getDefaultLayerData,
   getCanvasFirstLayerData,
-} from "../functions/layers"
+} from "../functions/layers";
+
+import produce from "immer";
 
 const defaultState = {
   layers: [getCanvasFirstLayerData()],
@@ -30,99 +32,63 @@ const defaultState = {
       Width: [],
     },
   },
-}
+};
+
+// state = produce(state, (draft) => {
+//   draft.layers.push(getDefaultLayerData(action.value));
 
 export const dataReducer = (state = defaultState, action) => {
-  switch (action.type) {
-    case "ADD_LAYER": {
-      return {
-        ...state,
-        layers: [...state.layers, getDefaultLayerData(action.value)],
+  return produce(state, (draft) => {
+    switch (action.type) {
+      case "ADD_LAYER": {
+        draft.layers.push(getDefaultLayerData(action.value));
+        break;
       }
-    }
-    case "CHANGE_HEIGHT": {
-      const height = action.height
-      const selected = action.selected[0]
-      state.layers[selected].meta.height = height
-      return {
-        ...state,
-        layers: [...state.layers]
+      case "CHANGE_HEIGHT": {
+        const selected = action.selected[0];
+        draft.layers[selected].meta.height = action.height;
       }
-    }
-    case "CHANGE_WIDTH": {
-      const width = action.width
-      const selected = action.selected[0]
-      state.layers[selected].meta.width = width
-      return {
-        ...state,
-        layers: [...state.layers]
+      case "CHANGE_WIDTH": {
+        const selected = action.selected[0];
+        draft.layers[selected].meta.width = action.width;
       }
-    }
-    case "CHANGE_TEXT": {
-      const value = action.value
-      const index = action.index
-      state.layers[index].meta.text = value
-      return {
-        ...state,
-        layers: [...state.layers]
+      case "CHANGE_TEXT": {
+        const index = action.index;
+        draft.layers[index].meta.text = action.value;
+        break;
       }
-    }
-    case "CHANGE_FONT": {
-      const font = action.font
-      const selected = action.selected[0]
-      state.layers[selected].meta.fontFamily = font
-      return {
-        ...state,
-        layers: [...state.layers]
+      case "CHANGE_FONT": {
+        const selected = action.selected[0];
+        draft.layers[selected].meta.fontFamily = action.font;
+        break;
       }
-    }
-    case "CHANGE_COLOR": {
-      const color = action.color
-      const selected = action.selected[0]
-      state.layers[selected].meta.color = color
-      return {
-        ...state,
-        layers: [...state.layers]
+      case "CHANGE_COLOR": {
+        const selected = action.selected[0];
+        draft.layers[selected].meta.color = action.color;
+        break;
       }
-    }
-    case "CHANGE_HIGHLIGHT_COLOR": {
-      const highlightColor = action.highlightColor
-      const selected = action.selected[0]
-      state.layers[selected].meta.highlightColor = highlightColor
-      return {
-        ...state,
-        layers: [...state.layers]
+      case "CHANGE_HIGHLIGHT_COLOR": {
+        const selected = action.selected[0];
+        draft.layers[selected].meta.highlightColor = action.highlightColor;
+        break;
       }
-    }
-    case "CHANGE_FONT_SIZE": {
-      const fontSize = action.fontSize
-      const selected = action.selected[0]
-      state.layers[selected].meta.fontSize = fontSize
-      return {
-        ...state,
-        layers: [...state.layers]
+      case "CHANGE_FONT_SIZE": {
+        const selected = action.selected[0];
+        draft.layers[selected].meta.fontSize = action.fontSize;
+        break;
       }
-    }
-    case "CHANGE_LETTER_SPACING": {
-      const letterSpacing = action.letterSpacing
-      const selected = action.selected[0]
-      state.layers[selected].meta.letterSpacing = letterSpacing
-      return {
-        ...state,
-        layers: [...state.layers]
+      case "CHANGE_LETTER_SPACING": {
+        const selected = action.selected[0];
+        draft.layers[selected].meta.letterSpacing = action.letterSpacing;
+        break;
       }
-    }
-    case "CHANGE_LINE_HEIGHT": {
-      const lineHeight = action.lineHeight
-      const selected = action.selected[0]
-      state.layers[selected].meta.lineHeight = lineHeight
-      return {
-        ...state,
-        layers: [...state.layers]
+      case "CHANGE_LINE_HEIGHT": {
+        const selected = action.selected[0];
+        draft.layers[selected].meta.lineHeight = action.lineHeight;
+        break;
       }
+      default:
+        return draft;
     }
-
-    default:
-      return state
-  }
-}
+  });
+};

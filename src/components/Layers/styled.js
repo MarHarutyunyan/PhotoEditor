@@ -1,11 +1,18 @@
-import { ActionButton } from "../CommonStyles"
-import styled from "styled-components"
+import { ActionButton } from "../CommonStyles";
+import styled from "styled-components";
 
-export const LayerButton = ActionButton
+export const LayerButton = styled.button`
+  width: 90%;
+  padding: 15px 0;
+  border-radius: 30px;
+  cursor: pointer;
+  border-color: transparent;
+  position: relative;
+`;
 
 export const LayersContainer = styled.div`
   height: 100%;
-`
+`;
 
 export const Layers = styled.div`
   position: relative;
@@ -38,4 +45,4 @@ export const Layers = styled.div`
       color: #fff;
     }
   }
-`
+`;
