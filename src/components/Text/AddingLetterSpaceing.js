@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { addLetterSpacingAction } from "../../store/actions/actions"
 
 export const AddingLetterSpacing = ({ selected, layers }) => {
   const dispatch = useDispatch()
@@ -10,11 +11,7 @@ export const AddingLetterSpacing = ({ selected, layers }) => {
     changeCountBy(-1)
   }
   const changeCountBy = (num) => {
-    dispatch({
-      type: "CHANGE_LETTER_SPACING",
-      letterSpacing: Math.max(0, layers[selected[0]].meta.letterSpacing + num),
-      selected,
-    })
+    dispatch(addLetterSpacingAction(Math.max(0, layers[selected[0]].meta.letterSpacing + num), selected))
   }
 
   return (

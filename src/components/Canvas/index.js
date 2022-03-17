@@ -4,7 +4,7 @@ import { SHAPE_LAYER, TEXT_LAYER } from "../../config/Constants";
 import ShapeComponent from "../ShapeComponent";
 import { getLayers, getCanvasSize } from "../../store/selectors";
 import TextComponent from "../TextComponent";
-import { selectedLayerAction } from "../../store/actions/selectedLayerAction";
+import { selectedLayerAction } from "../../store/actions/actions";
 import * as Styled from "./styled";
 
 export const Canvas = () => {

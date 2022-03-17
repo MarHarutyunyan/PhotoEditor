@@ -1,5 +1,5 @@
 import { getLayers } from "../selectors";
-import { selectedLayerAction } from "../../store/actions/selectedLayerAction";
+import { selectedLayerAction } from "../../store/actions/actions";
 
 const actionsToReact = ["ADD_LAYER"];
 

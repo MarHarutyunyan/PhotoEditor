@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { addSizeAction } from "../../store/actions/actions"
 
 export const AddingSize = ({ selected, layers }) => {
   const dispatch = useDispatch()
@@ -11,11 +12,8 @@ export const AddingSize = ({ selected, layers }) => {
   // }
   const changeCountBy = (e) => {
     //debugger
-    dispatch({
-      type: "CHANGE_FONT_SIZE",
-      fontSize: Number(e.target.value),
-      selected,
-    })
+    dispatch(addSizeAction(Number(e.target.value),selected))
+    
     e.target.value = layers[selected[0]].meta.fontSize
   }
 

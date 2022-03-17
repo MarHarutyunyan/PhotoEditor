@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { changeFontAction } from "../../store/actions/actions";
 
 export const AddingFonts = ({ selected, layers }) => {
   const fonts = useSelector((state) => state.data.properties.text.Fonts);
   const dispatch = useDispatch();
 
-  const changeFont = (font, selected) => {
-    dispatch({ type: "CHANGE_FONT", font: font, selected: selected });
-  };
+  const changeFont = (font, selected) => dispatch(changeFontAction(font, selected));
 
   return (
     <div>

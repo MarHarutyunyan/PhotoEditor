@@ -1,11 +1,10 @@
 import React from "react"
 import { useDispatch } from "react-redux"
+import { changeColorAction } from "../../store/actions/actions"
 
 export const AddingColor = ({ selected, layers }) => {
   const dispatch = useDispatch()
-  const handleOnChange = (e) => {
-    dispatch({ type: "CHANGE_COLOR", color: e.target.value, selected })
-  }
+  const handleOnChange = (e) => dispatch(changeColorAction(e.target.value, selected))
 
   return (
     <div>
