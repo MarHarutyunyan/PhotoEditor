@@ -1,21 +1,20 @@
-import React, { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { AddLayerMenu } from "../AddLayerMenu"
-import * as Styled from "./styled"
-import { getLayers, getSelectedLayerIndex } from "../../store/selectors"
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AddLayerMenu } from "../AddLayerMenu";
+import * as Styled from "./styled";
+import { getLayers, getSelectedLayerIndex } from "../../store/selectors";
 
 export const Layers = () => {
-  const layers = useSelector(getLayers)
-  const selected = useSelector(getSelectedLayerIndex)
+  const layers = useSelector(getLayers);
+  const selected = useSelector(getSelectedLayerIndex);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const [menuVisible, setMenuVisibility] = useState(false)
-  const toggleMenu = () => setMenuVisibility((prevState) => !prevState)
+  const [menuVisible, setMenuVisibility] = useState(false);
+  const toggleMenu = () => setMenuVisibility((prevState) => !prevState);
 
   const selectLayer = (index) =>
-    dispatch({ type: "SET_SELECTED", value: [index] })
-
+    dispatch({ type: "SET_SELECTED", value: [index] });
   return (
     <Styled.LayersContainer>
       <Styled.Layers>
@@ -36,5 +35,5 @@ export const Layers = () => {
         </Styled.LayerButton>
       </Styled.Layers>
     </Styled.LayersContainer>
-  )
-}
+  );
+};

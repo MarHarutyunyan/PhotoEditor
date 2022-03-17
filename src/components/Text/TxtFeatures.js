@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { useSelector } from "react-redux"
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import {
   COLOR,
   FONT,
@@ -7,32 +7,34 @@ import {
   LETTERSPACING,
   LINEHEIGHT,
   SIZE,
-} from "../../config/Constants"
-import { AddingColor } from "./AddingColor"
-import { AddingFonts } from "./AddingFonts"
-import { AddingHighlightColor } from "./AddingHighlightColor"
-import { AddingLetterSpacing } from "./AddingLetterSpaceing"
-import { AddingLineHeight } from "./AddingLineHeight"
-import { AddingSize } from "./AddingSize"
+} from "../../config/Constants";
+import { AddingColor } from "./AddingColor";
+import { AddingFonts } from "./AddingFonts";
+import { AddingHighlightColor } from "./AddingHighlightColor";
+import { AddingLetterSpacing } from "./AddingLetterSpaceing";
+import { AddingLineHeight } from "./AddingLineHeight";
+import { AddingSize } from "./AddingSize";
+import * as Styled from "./styled";
 
 export const TxtFeatures = ({ selected, layers }) => {
-  const features = useSelector((state) => state.data.properties.text)
-  const txtFeatures = Object.keys(features)
-  const [OpenFeature, setOpenFeature] = useState(false)
-  const [selectedFeature, setFeature] = useState("")
+  const features = useSelector((state) => state.data.properties.text);
+  const txtFeatures = Object.keys(features);
+  const [OpenFeature, setOpenFeature] = useState(false);
+  const [selectedFeature, setFeature] = useState("");
 
   const openFeaturesProperties = (Feature) => {
-    setFeature(Feature)
-    setOpenFeature(true)
-  }
+    setFeature(Feature);
+    setOpenFeature(true);
+  };
 
   return (
-    <ul>
+    <Styled.TxtFeatures>
       {txtFeatures.map((Feature, i) => (
-        <li
+        <Styled.TxtFeaturesList
           onClick={() => openFeaturesProperties(Feature)}
           key={i}
-          className={selectedFeature === Feature ? null : "hiddenChild"}
+          Feature={Feature}
+          selectedFeature={selectedFeature}
         >
           {Feature}
           {selectedFeature === FONT && OpenFeature ? (
@@ -48,8 +50,8 @@ export const TxtFeatures = ({ selected, layers }) => {
           ) : selectedFeature === LETTERSPACING && OpenFeature ? (
             <AddingLetterSpacing selected={selected} layers={layers} />
           ) : null}
-        </li>
+        </Styled.TxtFeaturesList>
       ))}
-    </ul>
-  )
-}
+    </Styled.TxtFeatures>
+  );
+};

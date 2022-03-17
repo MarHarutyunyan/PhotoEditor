@@ -1,20 +1,20 @@
-import React from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { SHAPE_LAYER, TEXT_LAYER } from "../../config/Constants"
-import ShapeComponent from "../ShapeComponent"
-import { getLayers, getCanvasSize } from "../../store/selectors"
-import TextComponent from "../TextComponent"
-import * as Styled from "./styled"
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { SHAPE_LAYER, TEXT_LAYER } from "../../config/Constants";
+import ShapeComponent from "../ShapeComponent";
+import { getLayers, getCanvasSize } from "../../store/selectors";
+import TextComponent from "../TextComponent";
+import * as Styled from "./styled";
 
 export const Canvas = () => {
-  const dispatch = useDispatch()
-  const layers = useSelector(getLayers)
+  const dispatch = useDispatch();
+  const layers = useSelector(getLayers);
 
-  const { width, height } = useSelector(getCanvasSize)
+  const { width, height } = useSelector(getCanvasSize);
 
   const selectLayer = (index) => {
-    dispatch({ type: "SET_SELECTED", value: [index] })
-  }
+    dispatch({ type: "SET_SELECTED", value: [index] });
+  };
 
   return (
     <Styled.Container>
@@ -26,6 +26,7 @@ export const Canvas = () => {
             height={layer.height}
             x={layer.coords.x}
             y={layer.coords.y}
+            layer={layer}
             onSelect={() => selectLayer(index)}
           >
             {layer.type === SHAPE_LAYER && <ShapeComponent index={index} />}
@@ -34,5 +35,5 @@ export const Canvas = () => {
         ))}
       </Styled.Canvas>
     </Styled.Container>
-  )
-}
+  );
+};

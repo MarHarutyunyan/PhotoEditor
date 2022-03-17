@@ -46,6 +46,7 @@ export const dataReducer = (state = defaultState, action) => {
       state.layers[selected].meta.height = height
       return {
         ...state,
+        layers: [...state.layers]
       }
     }
     case "CHANGE_WIDTH": {
@@ -54,6 +55,7 @@ export const dataReducer = (state = defaultState, action) => {
       state.layers[selected].meta.width = width
       return {
         ...state,
+        layers: [...state.layers]
       }
     }
     case "CHANGE_TEXT": {
@@ -62,6 +64,7 @@ export const dataReducer = (state = defaultState, action) => {
       state.layers[index].meta.text = value
       return {
         ...state,
+        layers: [...state.layers]
       }
     }
     case "CHANGE_FONT": {
@@ -70,6 +73,7 @@ export const dataReducer = (state = defaultState, action) => {
       state.layers[selected].meta.fontFamily = font
       return {
         ...state,
+        layers: [...state.layers]
       }
     }
     case "CHANGE_COLOR": {
@@ -78,6 +82,7 @@ export const dataReducer = (state = defaultState, action) => {
       state.layers[selected].meta.color = color
       return {
         ...state,
+        layers: [...state.layers]
       }
     }
     case "CHANGE_HIGHLIGHT_COLOR": {
@@ -86,6 +91,7 @@ export const dataReducer = (state = defaultState, action) => {
       state.layers[selected].meta.highlightColor = highlightColor
       return {
         ...state,
+        layers: [...state.layers]
       }
     }
     case "CHANGE_FONT_SIZE": {
@@ -94,6 +100,7 @@ export const dataReducer = (state = defaultState, action) => {
       state.layers[selected].meta.fontSize = fontSize
       return {
         ...state,
+        layers: [...state.layers]
       }
     }
     case "CHANGE_LETTER_SPACING": {
@@ -102,6 +109,7 @@ export const dataReducer = (state = defaultState, action) => {
       state.layers[selected].meta.letterSpacing = letterSpacing
       return {
         ...state,
+        layers: [...state.layers]
       }
     }
     case "CHANGE_LINE_HEIGHT": {
@@ -110,6 +118,7 @@ export const dataReducer = (state = defaultState, action) => {
       state.layers[selected].meta.lineHeight = lineHeight
       return {
         ...state,
+        layers: [...state.layers]
       }
     }
 

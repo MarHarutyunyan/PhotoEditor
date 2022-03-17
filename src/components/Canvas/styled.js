@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 80%;
@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
   border: 1px solid #fff;
   overflow: hidden;
-`
+`;
 
 export const Canvas = styled.div`
   > * {
@@ -18,11 +18,11 @@ export const Canvas = styled.div`
   height: ${(props) => props.height}px;
   position: relative;
   overflow: hidden;
-`
+`;
 
 export const CanvasItemWrapper = styled.div`
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
   top: ${(props) => props.y}px;
   left: ${(props) => props.x}px;
-`
+`;

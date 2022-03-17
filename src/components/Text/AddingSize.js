@@ -10,6 +10,7 @@ export const AddingSize = ({ selected, layers }) => {
   //     changeCountBy(-1);
   // }
   const changeCountBy = (e) => {
+    //debugger
     dispatch({
       type: "CHANGE_FONT_SIZE",
       fontSize: Number(e.target.value),
@@ -17,6 +18,7 @@ export const AddingSize = ({ selected, layers }) => {
     })
     e.target.value = layers[selected[0]].meta.fontSize
   }
+
   return (
     <div className="textSizeProp">
       {/* <div className="slidecontainer">
