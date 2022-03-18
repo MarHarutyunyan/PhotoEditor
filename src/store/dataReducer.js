@@ -11,31 +11,7 @@ const defaultState = {
     width: 1000,
     height: 500,
   },
-  properties: {
-    text: {
-      Fonts: [
-        "Sans-serif",
-        "Georgia, serif",
-        "Cursive",
-        "System-Ui",
-        "Monospace",
-        "Fantasy",
-      ],
-      Size: 11,
-      Color: "#000000",
-      HighlightColor: "#fff",
-      LineHeight: 0,
-      LetterSpacing: 0,
-    },
-    img: {
-      Color: [],
-      Width: [],
-    },
-  },
 };
-
-// state = produce(state, (draft) => {
-//   draft.layers.push(getDefaultLayerData(action.value));
 
 export const dataReducer = (state = defaultState, action) => {
   return produce(state, (draft) => {

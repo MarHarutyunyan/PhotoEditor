@@ -1,17 +1,14 @@
-import * as Styled from "./styled"
-import { useSelector } from "react-redux"
-import { getLayers } from "../../store/selectors"
+import * as Styled from "./styled";
+import { useSelector } from "react-redux";
+import { getLayers } from "../../store/selectors";
 
 const ShapeComponent = ({ onSelect, index }) => {
-  const layers = useSelector(getLayers)
-  const layer = layers[index]
+  const layers = useSelector(getLayers);
+  const layer = layers[index];
 
   if (!layer) {
-    return null
+    return null;
   }
-
-  console.log("layer.meta.backgroundColor", layer.meta.backgroundColor)
-
   return (
     <Styled.Shape
       onClick={onSelect}
@@ -21,7 +18,7 @@ const ShapeComponent = ({ onSelect, index }) => {
       y={layer.coords.y}
       backgroundColor={layer.meta.backgroundColor}
     />
-  )
-}
+  );
+};
 
-export default ShapeComponent
+export default ShapeComponent;

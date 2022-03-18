@@ -19,7 +19,7 @@ export const Properties = () => {
     );
   }
 
-  const selectedLayerType = layers[selected[0]].type;
+  const selectedLayerType = layers[selected[selected.length - 1]].type;
 
   return (
     <Styled.PropertiesContainer>

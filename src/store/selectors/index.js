@@ -21,9 +21,7 @@ export const getCanvasSize = createSelector(
   }
 )
 
-export const getSelectedLayerIndex = (state) => {
-  return getUi(state).selectedLayerIndex
-}
+export const getSelectedLayerIndex = (state) =>  getUi(state).selectedLayerIndex
 
 export const getLayers = createSelector(
   getCanvasSize,

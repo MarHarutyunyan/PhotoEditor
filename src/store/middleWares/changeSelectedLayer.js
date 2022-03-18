@@ -12,7 +12,7 @@ const changeSelectedLayer =
       const layers = getLayers(getState());
       const lastLayerIndex = layers.length - 1;
 
-      dispatch(selectedLayerAction(lastLayerIndex));
+      dispatch(selectedLayerAction([lastLayerIndex]));
     }
 
     return result;

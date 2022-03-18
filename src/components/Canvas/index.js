@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SHAPE_LAYER, TEXT_LAYER } from "../../config/Constants";
 import ShapeComponent from "../ShapeComponent";
@@ -8,6 +8,7 @@ import { selectedLayerAction } from "../../store/actions/actions";
 import * as Styled from "./styled";
 
 export const Canvas = () => {
+  const canvasNode = useRef();
   const dispatch = useDispatch();
   const layers = useSelector(getLayers);
 
@@ -15,10 +16,9 @@ export const Canvas = () => {
 
   const selectLayer = (index) => dispatch(selectedLayerAction(index));
 
-
   return (
     <Styled.Container>
-      <Styled.Canvas width={width} height={height}>
+      <Styled.Canvas width={width} height={height} ref={canvasNode}>
         {layers.map((layer, index) => (
           <Styled.CanvasItemWrapper
             key={index}

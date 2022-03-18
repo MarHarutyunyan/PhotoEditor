@@ -1,5 +1,5 @@
-export const selectedLayerAction = (index) => {
-    return { type: "SET_SELECTED", value: [index] }
+export const selectedLayerAction = (value) =>  {
+    return { type: "SET_SELECTED", value }
 }
 
 export const addLayerAction = (layerType) => {

@@ -17,7 +17,7 @@ import { AddingSize } from "./AddingSize";
 import * as Styled from "./styled";
 
 export const TxtFeatures = ({ selected, layers }) => {
-  const features = useSelector((state) => state.data.properties.text);
+  const features = useSelector((state) => state.ui.properties.text);
   const txtFeatures = Object.keys(features);
   const [OpenFeature, setOpenFeature] = useState(false);
   const [selectedFeature, setFeature] = useState("");

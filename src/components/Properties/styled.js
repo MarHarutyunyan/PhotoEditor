@@ -6,4 +6,5 @@ export const PropertiesContainer = styled.div`
   overflow-y: auto;
 `
 
-export const MultipleLayersSelected = styled.div
+export const MultipleLayersSelected = styled.div`
+background: red`
