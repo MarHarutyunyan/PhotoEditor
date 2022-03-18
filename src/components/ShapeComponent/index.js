@@ -10,8 +10,6 @@ const ShapeComponent = ({ onSelect, index }) => {
     return null
   }
 
-  console.log("layer.meta.backgroundColor", layer.meta.backgroundColor)
-
   return (
     <Styled.Shape
       onClick={onSelect}

@@ -1,11 +1,13 @@
 import React from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addHighlightColorAction } from "../../store/actions/actions"
+import { getSelectedLayerIndex } from "../../store/selectors"
 
-export const AddingHighlightColor = ({ selected, layers }) => {
+export const AddingHighlightColor = ({ layers }) => {
   const dispatch = useDispatch()
+  const selected = useSelector(getSelectedLayerIndex);
   const handleOnChange = (e) => {
-    dispatch(addHighlightColorAction(e.target.value, selected))
+    dispatch(addHighlightColorAction(e.target.value))
   }
   return (
     <div>
