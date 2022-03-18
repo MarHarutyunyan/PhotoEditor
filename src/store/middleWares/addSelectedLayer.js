@@ -1,5 +1,4 @@
 import { getLayers, getUi, getSelectedLayerIndex } from "../selectors";
-import { selectedLayerAction } from "../../store/actions/actions";
 
 const actionsToNotReact = ["SET_SELECTED"];
 
