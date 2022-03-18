@@ -14,7 +14,7 @@ export const Canvas = () => {
 
   const { width, height } = useSelector(getCanvasSize);
 
-  const selectLayer = (index) => dispatch(selectedLayerAction(index));
+  const selectLayer = (index) => dispatch(selectedLayerAction([index]));
 
   return (
     <Styled.Container>
