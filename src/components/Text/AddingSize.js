@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addSizeAction } from "../../store/actions/actions"
+import { getSelectedLayerIndex } from "../../store/selectors"
 
-export const AddingSize = ({ selected, layers }) => {
+export const AddingSize = ({ layers }) => {
   const dispatch = useDispatch()
+  const selected = useSelector(getSelectedLayerIndex);
+
   // const adding = () => {
   //     changeCountBy(1);
   // }
@@ -12,8 +15,8 @@ export const AddingSize = ({ selected, layers }) => {
   // }
   const changeCountBy = (e) => {
     //debugger
-    dispatch(addSizeAction(Number(e.target.value),selected))
-    
+    dispatch(addSizeAction(Math.max(0, Number(e.target.value))))
+
     e.target.value = layers[selected[0]].meta.fontSize
   }
 

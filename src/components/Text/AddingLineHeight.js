@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addLineHeightAction } from "../../store/actions/actions"
+import { getSelectedLayerIndex } from "../../store/selectors"
 
-export const AddingLineHeight = ({ selected, layers }) => {
+export const AddingLineHeight = ({ layers }) => {
   const dispatch = useDispatch()
+  const selected = useSelector(getSelectedLayerIndex);
   const adding = () => {
     changeCountBy(1)
   }
@@ -11,7 +13,7 @@ export const AddingLineHeight = ({ selected, layers }) => {
     changeCountBy(-1)
   }
   const changeCountBy = (num) => {
-    dispatch(addLineHeightAction(Math.max(0, layers[selected[0]].meta.lineHeight + num), selected))
+    dispatch(addLineHeightAction(Math.max(0, layers[selected[0]].meta.lineHeight + num)))
   }
 
   return (

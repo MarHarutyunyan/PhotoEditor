@@ -25,7 +25,7 @@ export const Properties = () => {
     <Styled.PropertiesContainer>
       {selectedLayerType === SHAPE_LAYER && <ShapeProps />}
       {selectedLayerType === TEXT_LAYER && (
-        <TxtFeatures layers={layers} selected={selected} />
+        <TxtFeatures layers={layers}  />
       )}
       {selectedLayerType === IMG_LAYER && <ImgProps />}
     </Styled.PropertiesContainer>
