@@ -33,3 +33,7 @@ export const addSizeAction = (fontSize) => {
 export const changeTextAction = (index, value) => {
     return { type: "CHANGE_TEXT", index, value }
 }
+
+export const changeTxtCoordsAction = (coords) => {
+    return { type: "CHANGE_TXT_COORDS", coords }
+}
