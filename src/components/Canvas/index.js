@@ -27,7 +27,7 @@ export const Canvas = () => {
             x={layer.coords.x}
             y={layer.coords.y}
             layer={layer}
-            onSelect={() => selectLayer(index)}
+            onClick={() => selectLayer(index)}
           >
             {layer.type === SHAPE_LAYER && <ShapeComponent index={index} />}
             {layer.type === TEXT_LAYER && <TextComponent index={index} />}
