@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AddLayerMenu } from "../AddLayerMenu";
 import * as Styled from "./styled";
@@ -11,6 +11,26 @@ export const Layers = () => {
   const dispatch = useDispatch();
   const [menuVisible, setMenuVisibility] = useState(false);
   const toggleMenu = () => setMenuVisibility((prevState) => !prevState);
+  let dragItem, dragOverItem;
+
+  const dragStart = (position) => {
+    dragItem = position;
+  };
+
+  const dragEnter = (position) => {
+    dragOverItem = position;
+  };
+
+  const drop = () => {
+    if (dragOverItem) {
+      dispatch({
+        type: "CHANGE_LAYERS_ORDER",
+        dragItem,
+        dragOverItem,
+      });
+      dispatch(selectedLayerAction([dragOverItem]));
+    }
+  };
 
   const selectLayer = (index) => (event) => {
     const arr = [...selected];
@@ -35,8 +55,15 @@ export const Layers = () => {
         <ul>
           {layers.map((_, index) => (
             <li
+              onDragStart={() => dragStart(index)}
+              onDragEnter={() => dragEnter(index)}
+              onDragEnd={drop}
+              draggable={index ? true : false}
               className={selected.includes(index) ? "selected" : null}
               key={index}
+              style={{
+                border:dragOverItem === index ? "1px solid white" : null,
+                }}
               onClick={selectLayer(index)}
             >
               {index + 1}) {layers[index].title}

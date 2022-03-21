@@ -21,7 +21,7 @@ const getTextMeta = (width = 0, height = 0) => {
     },
     rotation: 0,
     meta: {
-      text: "Click to edit",
+      text: "",
       fontFamily: "Sans-serif",
       fontSize: 24,
       highlightColor: "#ffffff",

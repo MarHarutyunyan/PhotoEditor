@@ -63,6 +63,12 @@ export const dataReducer = (state = defaultState, action) => {
         draft.layers[selected].meta.lineHeight = action.lineHeight;
         break;
       }
+      case "CHANGE_LAYERS_ORDER": {
+        const dragItemContent = draft.layers[action.dragItem];
+        draft.layers.splice(action.dragItem, 1);
+        draft.layers.splice(action.dragOverItem, 0, dragItemContent);
+        break;
+      }
       default:
         return draft;
     }
