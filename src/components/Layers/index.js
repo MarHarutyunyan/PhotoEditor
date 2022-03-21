@@ -17,8 +17,13 @@ export const Layers = () => {
     dragItem = position;
   };
 
-  const dragEnter = (position) => {
+  const dragEnter = (e, position) => {
     dragOverItem = position;
+    e.target.style.border = "2px solid red";
+  };
+
+  const dragLeave = (e) => {
+    e.target.style.border = null;
   };
 
   const drop = () => {
@@ -56,14 +61,12 @@ export const Layers = () => {
           {layers.map((_, index) => (
             <li
               onDragStart={() => dragStart(index)}
-              onDragEnter={() => dragEnter(index)}
+              onDragEnter={(e) => dragEnter(e, index)}
               onDragEnd={drop}
+              onDragLeave={(e) => dragLeave(e)}
               draggable={index ? true : false}
-              className={selected.includes(index) ? "selected" : null}
+              className={selected.includes(index) ? "selected" : ""}
               key={index}
-              style={{
-                border:dragOverItem === index ? "1px solid white" : null,
-                }}
               onClick={selectLayer(index)}
             >
               {index + 1}) {layers[index].title}
