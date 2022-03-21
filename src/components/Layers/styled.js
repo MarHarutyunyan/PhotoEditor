@@ -9,34 +9,44 @@ export const LayerButton = styled.button`
   position: relative;
 `;
 export const LayersContainer = styled.div`
-  height: 100%;
-  width:20%;
+  width: 20%;
+  height: 90vh;
+  overflow-y: auto;
 `;
 export const Layers = styled.div`
-  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   overflow: hidden;
-  > ul {
+  ul {
+    width: 90%;
+    height: 90%;
     overflow-y: auto;
-    margin: 10px;
-    padding: 0;
-    padding-inline-start: 0;
+    margin: 0 0 10px 0;
     li {
-      margin: 0 5px 10px 5px;
+      margin: 0 10px 10px 10px;
       padding: 15px 0;
-      background-color: #2B2B2B;
+      background-color: #2b2b2b;
       color: #fff;
       cursor: pointer;
       border-radius: 30px;
       text-align: center;
     }
     .selected {
-      background-color: #FF0000;
+      background-color: #ff0000;
       color: #fff;
+    }
+    ::-webkit-scrollbar {
+      width: 5px;
+      cursor: pointer;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8f8e92;
+      border-radius: 10px;
+      cursor: pointer;
     }
   }
 `;
