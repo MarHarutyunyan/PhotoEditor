@@ -14,7 +14,6 @@ const TextComponent = ({ index }) => {
   useEffect(() => {
     if (selected.includes(index)) {
       textNode.current.focus();
-      console.log(textNode);
     }
   }, [selected]);
 
@@ -22,7 +21,6 @@ const TextComponent = ({ index }) => {
     <Styled.Textarea
       placeholder="Edit Text"
       onChange={(event) => setText(event.target.value)}
-      value={layers[index].meta.text}
       onClick={onselect}
       layer={layers[index]}
       ref={textNode}

@@ -34,7 +34,6 @@ export const Layers = styled.div`
       cursor: pointer;
       border-radius: 30px;
       text-align: center;
-
     }
     .selected {
       background-color: #ff0000;

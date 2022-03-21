@@ -19,7 +19,7 @@ export const Layers = () => {
 
   const dragEnter = (e, position) => {
     dragOverItem = position;
-    e.target.style.border = "2px solid red";
+    e.target.style.border = "2px solid red"; //<=
   };
 
   const dragLeave = (e) => {
