@@ -21,10 +21,15 @@ export const getCanvasSize = createSelector(
   }
 )
 
-export const getSelectedLayerIndex = (state) =>  getUi(state).selectedLayerIndex
+export const getSelectedLayerIndex = (state) => getUi(state).selectedLayerIndex
+
 
 export const getLayers = createSelector(
   getCanvasSize,
   _getLayersPure,
   (cavasSize, layers) => layers.map(convertPercentToPixel(cavasSize))
 )
+
+export const getTxtCoords = (state) => {
+ return _getLayersPure(state)[getSelectedLayerIndex(state)].coords
+}

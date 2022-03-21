@@ -63,6 +63,11 @@ export const dataReducer = (state = defaultState, action) => {
         draft.layers[selected].meta.lineHeight = action.lineHeight;
         break;
       }
+      case "CHANGE_TXT_COORDS": {
+        const selected = action.__selectedLyers[0];
+        draft.layers[selected].coords = action.coords;
+        break;
+      }
       default:
         return draft;
     }
