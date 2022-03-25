@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SHAPE_LAYER, TEXT_LAYER } from "../../config/Constants";
 import ShapeComponent from "../ShapeComponent";
-import { getLayers, getCanvasSize, getTxtCoords } from "../../store/selectors";
+import { getLayers, getCanvasSize, getTxtCoords, getSelectedLayerIndex } from "../../store/selectors";
 import TextComponent from "../TextComponent";
 import { changeTxtCoordsAction, selectedLayerAction } from "../../store/actions/actions";
 import * as Styled from "./styled";
@@ -13,12 +13,10 @@ export const Canvas = () => {
   const { width, height } = useSelector(getCanvasSize);
   const selectLayer = (index) => dispatch(selectedLayerAction([index]));
   const coords = useSelector(getTxtCoords)
-  var mousePosition;
+  const myTextInput = useRef(null);
 
   var offset = [coords.x, coords.y];
   var isDown = false;
-  const myTextInput = useRef(null);
-
   const moveTxt = () => {
     myTextInput.current.addEventListener('mousedown', function (e) {
       isDown = true;
@@ -33,7 +31,7 @@ export const Canvas = () => {
     canvasNode.current.addEventListener('mousemove', function (event) {
       event.preventDefault();
       if (isDown) {
-        mousePosition = {
+        const mousePosition = {
           x: event.clientX,
           y: event.clientY
         };

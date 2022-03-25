@@ -74,6 +74,9 @@ export const dataReducer = (state = defaultState, action) => {
         draft.layers.splice(action.dragOverItem, 0, dragItemContent);
         break;
       }
+      case "SHIFT_KEY_PRESSED": {
+
+      }
       default:
         return draft;
     }

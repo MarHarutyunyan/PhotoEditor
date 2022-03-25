@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddLayerMenu } from "../AddLayerMenu";
 import * as Styled from "./styled";
 import { getLayers, getSelectedLayerIndex } from "../../store/selectors";
-import { selectedLayerAction } from "../../store/actions/actions";
+import { changeLayersOrder, selectedLayerAction } from "../../store/actions/actions";
 
 export const Layers = () => {
   const layers = useSelector(getLayers);
@@ -28,11 +28,7 @@ export const Layers = () => {
 
   const drop = () => {
     if (dragOverItem) {
-      dispatch({
-        type: "CHANGE_LAYERS_ORDER",
-        dragItem,
-        dragOverItem,
-      });
+      dispatch(changeLayersOrder((dragItem, dragOverItem)));
       dispatch(selectedLayerAction([dragOverItem]));
     }
   };

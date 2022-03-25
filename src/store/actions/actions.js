@@ -1,4 +1,4 @@
-export const selectedLayerAction = (value) =>  {
+export const selectedLayerAction = (value) => {
     return { type: "SET_SELECTED", value }
 }
 
@@ -36,4 +36,8 @@ export const changeTextAction = (index, value) => {
 
 export const changeTxtCoordsAction = (coords) => {
     return { type: "CHANGE_TXT_COORDS", coords }
+}
+
+export const changeLayersOrder = (dragItem, dragOverItem) => {
+    return { type: "CHANGE_LAYERS_ORDER", dragItem, dragOverItem }
 }

@@ -31,5 +31,17 @@ export const getLayers = createSelector(
 )
 
 export const getTxtCoords = (state) => {
- return _getLayersPure(state)[getSelectedLayerIndex(state)].coords
+  if (getSelectedLayerIndex(state).length === 1) {
+    return _getLayersPure(state)[getSelectedLayerIndex(state)].coords
+
+  } else {
+    return { x: 0, y: 0 }
+
+    // console.log(getSelectedLayerIndex(state));
+    // getSelectedLayerIndex(state).map((_, index) => {
+    //   console.log(index);
+    //   console.log(_getLayersPure(state)[index].coords);
+    //   return _getLayersPure(state)[index].coords
+    // })
+  }
 }
