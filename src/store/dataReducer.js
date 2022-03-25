@@ -21,11 +21,11 @@ export const dataReducer = (state = defaultState, action) => {
         break;
       }
       case "CHANGE_HEIGHT": {
-        const selected = action.__selectedLyers[0];
+        const [selected] = action.__selectedLyers;
         draft.layers[selected].meta.height = action.height;
       }
       case "CHANGE_WIDTH": {
-        const selected = action.__selectedLyers[0];
+        const [selected] = action.__selectedLyers;
         draft.layers[selected].meta.width = action.width;
       }
       case "CHANGE_TEXT": {
@@ -34,37 +34,37 @@ export const dataReducer = (state = defaultState, action) => {
         break;
       }
       case "CHANGE_FONT": {
-        const selected = action.__selectedLyers[0];
+        const [selected] = action.__selectedLyers;
         draft.layers[selected].meta.fontFamily = action.font;
         break;
       }
       case "CHANGE_COLOR": {
-        const selected = action.__selectedLyers[0];
+        const [selected] = action.__selectedLyers;
         draft.layers[selected].meta.color = action.color;
         break;
       }
       case "CHANGE_HIGHLIGHT_COLOR": {
-        const selected = action.__selectedLyers[0];
+        const [selected] = action.__selectedLyers;
         draft.layers[selected].meta.highlightColor = action.highlightColor;
         break;
       }
       case "CHANGE_FONT_SIZE": {
-        const selected = action.__selectedLyers[0];
+        const [selected] = action.__selectedLyers;
         draft.layers[selected].meta.fontSize = action.fontSize;
         break;
       }
       case "CHANGE_LETTER_SPACING": {
-        const selected = action.__selectedLyers[0];
+        const [selected] = action.__selectedLyers;
         draft.layers[selected].meta.letterSpacing = action.letterSpacing;
         break;
       }
       case "CHANGE_LINE_HEIGHT": {
-        const selected = action.__selectedLyers[0];
+        const [selected] = action.__selectedLyers;
         draft.layers[selected].meta.lineHeight = action.lineHeight;
         break;
       }
       case "CHANGE_TXT_COORDS": {
-        const selected = action.__selectedLyers[0];
+        const [selected] = action.__selectedLyers;
         draft.layers[selected].coords = action.coords;
         break;
       }

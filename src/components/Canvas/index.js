@@ -13,7 +13,6 @@ export const Canvas = () => {
   const { width, height } = useSelector(getCanvasSize);
   const selectLayer = (index) => dispatch(selectedLayerAction([index]));
   const coords = useSelector(getTxtCoords)
-  var mousePosition;
 
   var offset = [coords.x, coords.y];
   var isDown = false;
@@ -33,7 +32,7 @@ export const Canvas = () => {
     canvasNode.current.addEventListener('mousemove', function (event) {
       event.preventDefault();
       if (isDown) {
-        mousePosition = {
+       const mousePosition = {
           x: event.clientX,
           y: event.clientY
         };
