@@ -31,7 +31,7 @@ export const Canvas = () => {
     canvasNode.current.addEventListener('mousemove', function (event) {
       event.preventDefault();
       if (isDown) {
-        const mousePosition = {
+       const mousePosition = {
           x: event.clientX,
           y: event.clientY
         };
